@@ -1,0 +1,55 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Backup files
+*.bak
+*.backup
+backup/
+backup_*/
+backup_working_*/
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# Dependencies
+node_modules/
+bower_components/
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Compiled files
+*.min.css
+*.min.js
+dist/
+build/
+
+# Cache
+.cache/
+.sass-cache/
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+
+# Private/sensitive files
+config.php
+database.php
+secrets.json

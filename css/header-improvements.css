@@ -1,0 +1,405 @@
+/* ===================================
+   HEADER IMPROVEMENTS
+   Logo, Navigation und visuelle Verbesserungen
+   =================================== */
+
+/* Logo Styling */
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo a {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    text-decoration: none;
+}
+
+.logo-img {
+    max-height: 50px;
+    width: auto;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+.logo-tagline {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    white-space: nowrap;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.logo-tagline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Navigation Improvements */
+.nav-2025 {
+    background: rgba(26, 26, 46, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s ease;
+    padding: 0.5rem 0;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-gradient);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link.active {
+    color: white;
+}
+
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* CTA Button Verbesserung */
+.nav-cta {
+    background: var(--primary-gradient);
+    color: white !important;
+    padding: 1.2rem 2.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    margin-left: 2rem;
+}
+
+.nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(102, 126, 234, 0.4);
+}
+
+.nav-cta i {
+    transition: transform 0.3s ease;
+}
+
+.nav-cta:hover i {
+    transform: translateX(3px);
+}
+
+/* Mobile Navigation Improvements */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    position: relative;
+    z-index: 1001;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Hero Bereich Anpassungen nach Stats-Entfernung */
+.hero-content {
+    padding: 8rem 0 6rem 0;
+}
+
+.hero-cta-group {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .nav-container {
+        padding: 1.5rem 2rem;
+    }
+    
+    .nav-list {
+        gap: 2rem;
+    }
+    
+    .nav-link {
+        font-size: 1.4rem;
+    }
+    
+    .logo-tagline {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(26, 26, 46, 0.98);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.3s ease;
+        z-index: 1000;
+    }
+    
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    .nav-list {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    
+    .nav-link {
+        font-size: 1.8rem;
+    }
+    
+    .nav-cta {
+        margin-left: 0;
+        margin-top: 2rem;
+    }
+    
+    .logo-img {
+        max-height: 40px;
+    }
+    
+    .logo-tagline {
+        display: none;
+    }
+    
+    .hero-cta-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 1rem 1.5rem;
+    }
+    
+    .logo-img {
+        max-height: 35px;
+    }
+    
+    .nav-cta {
+        padding: 1rem 2rem;
+        font-size: 1.4rem;
+    }
+}
+
+/* Scroll-Effekt für Navigation */
+.nav-2025.scrolled {
+    background: rgba(26, 26, 46, 0.98);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    padding: 1rem 0;
+}
+
+.nav-2025.scrolled .nav-container {
+    padding: 1rem 3rem;
+}
+
+.nav-2025.scrolled .logo-img {
+    max-height: 40px;
+}
+
+/* Accessibility Improvements */
+.nav-link:focus,
+.nav-cta:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Skip to content link styling */
+.skip-to-content:focus {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10000;
+    padding: 1rem 2rem;
+    background: var(--primary-gradient);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+/* Animation für bessere UX */
+@keyframes slideInFromTop {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.nav-2025 {
+    animation: slideInFromTop 0.6s ease-out;
+}
+
+/* Fallback Logo Text Styling */
+.logo-text {
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.logo-accent {
+    color: var(--accent-color);
+}
+
+/* Navigation Transition */
+.nav-2025 {
+    transition: all 0.3s ease;
+}
+
+/* Entfernen der Counter-Animation für hero-stats */
+.counter {
+    display: none;
+}
+
+/* Verbesserte Hero-Bereich Abstände */
+.hero-2025 .container-2025 {
+    padding-top: 2rem;
+}
+
+.hero-subtitle {
+    margin-bottom: 3rem;
+}
+
+/* Button Hover-Effekte verbessern */
+.hero-cta {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-cta::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.hero-cta:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Navbar Sticky Improvement */
+.nav-2025 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+/* Adjust body padding for fixed nav - removed to prevent conflicts */
+/* body {
+    padding-top: 80px;
+} */
+
+/* Smooth transitions */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

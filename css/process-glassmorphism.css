@@ -1,0 +1,353 @@
+/* Process Section with Video Background and Glassmorphism */
+.process-section {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    padding: 8rem 0;
+}
+
+/* Video Background Container */
+.process-video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.process-video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+/* Glassmorphic Cards Container */
+.process-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+    margin-top: 5rem;
+    position: relative;
+}
+
+/* Glassmorphic Card Style */
+.process-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 3rem;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.process-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.process-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 30px rgba(52, 152, 219, 0.3);
+    border-color: rgba(52, 152, 219, 0.3);
+}
+
+/* Card Number with Pulse Effect */
+.process-card-number {
+    position: absolute;
+    top: -20px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 5px 20px rgba(52, 152, 219, 0.5);
+}
+
+.pulse-effect {
+    position: relative;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 20px rgba(52, 152, 219, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+    }
+}
+
+/* Card Content */
+.process-card-content {
+    position: relative;
+    z-index: 1;
+}
+
+.process-card-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #3498db;
+    border: 2px solid rgba(52, 152, 219, 0.3);
+    transition: all 0.3s ease;
+}
+
+.process-card:hover .process-card-icon {
+    background: rgba(52, 152, 219, 0.2);
+    transform: scale(1.1);
+}
+
+.process-card-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.process-card-description {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.process-card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.process-card-list li {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1rem;
+    padding-left: 30px;
+    position: relative;
+}
+
+.process-card-list li i {
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: #3498db;
+}
+
+.process-card-footer {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.process-duration {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Process Connector Lines */
+.process-connector {
+    display: none;
+}
+
+/* Call-to-Action Button */
+.process-cta {
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.cta-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 3rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgba(52, 152, 219, 0.5);
+    border-radius: 50px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.4), transparent);
+    transition: left 0.5s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(52, 152, 219, 0.4);
+    border-color: #3498db;
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+.cta-icon {
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover .cta-icon {
+    transform: translateX(5px);
+}
+
+/* Fade-in Animation */
+.fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .process-cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Connector lines for desktop */
+    .process-connector {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: -3rem;
+        width: 3rem;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(52, 152, 219, 0.5), transparent);
+    }
+    
+    .process-card:nth-child(2) .process-connector,
+    .process-card:nth-child(4) .process-connector {
+        display: none;
+    }
+}
+
+@media (min-width: 1200px) {
+    .process-cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 1200px;
+        margin: 5rem auto 0;
+    }
+    
+    /* Horizontal layout for larger screens */
+    .process-card {
+        max-width: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .process-section {
+        padding: 4rem 0;
+    }
+    
+    .process-card {
+        padding: 2rem;
+    }
+    
+    .process-card-number {
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .process-card-title {
+        font-size: 1.5rem;
+    }
+    
+    .cta-button {
+        padding: 1.2rem 2rem;
+        font-size: 1rem;
+    }
+}
+
+/* Text color utilities */
+.text-white {
+    color: white !important;
+}
+
+.text-gray-200 {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Margin utilities */
+.mb-12 {
+    margin-bottom: 3rem;
+}
+
+/* Position utilities */
+.relative {
+    position: relative;
+}
+
+.z-10 {
+    z-index: 10;
+}
+
+/* Background utilities */
+.bg-black\/70 {
+    background-color: rgba(0, 0, 0, 0.7);
+}

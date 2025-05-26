@@ -1,0 +1,391 @@
+/* ===================================
+   PROJECTS DEVELOPMENT STATUS
+   Styles für Entwicklungsstatus und Launch-Termine
+   =================================== */
+
+/* Development Badges */
+.development-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #f39c12 0%, #e74c3c 100%);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+    z-index: 10;
+    animation: pulse 2s infinite;
+}
+
+.development-badge i {
+    font-size: 1.6rem;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Progress Bar */
+.development-progress {
+    margin: 2rem 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.progress-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.progress-percentage {
+    font-size: 2rem;
+    font-weight: 700;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: var(--primary-gradient);
+    border-radius: 10px;
+    transition: width 1.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Development Phases */
+.development-phases {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    position: relative;
+}
+
+.development-phases::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    z-index: 0;
+}
+
+.phase-item {
+    position: relative;
+    text-align: center;
+    flex: 1;
+    z-index: 1;
+}
+
+.phase-dot {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    margin: 0 auto 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.phase-dot.completed {
+    background: var(--primary-gradient);
+    border-color: transparent;
+}
+
+.phase-dot.active {
+    background: rgba(102, 126, 234, 0.3);
+    border-color: #667eea;
+    animation: pulseBorder 2s infinite;
+}
+
+@keyframes pulseBorder {
+    0% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(102, 126, 234, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0); }
+}
+
+.phase-dot i {
+    font-size: 1.6rem;
+    color: white;
+}
+
+.phase-label {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
+.phase-item.completed .phase-label {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.phase-item.active .phase-label {
+    color: #667eea;
+    font-weight: 600;
+}
+
+/* Coming Soon Overlay */
+.coming-soon-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(3px);
+}
+
+.coming-soon-text {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transform: rotate(-15deg);
+    opacity: 0.8;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Early Access Form */
+.early-access-section {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.early-access-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.early-access-form {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.early-access-input {
+    flex: 1;
+    padding: 1.2rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-size: 1.4rem;
+    transition: all 0.3s ease;
+}
+
+.early-access-input:focus {
+    outline: none;
+    border-color: #667eea;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.early-access-input::placeholder {
+    color: var(--text-muted);
+}
+
+.early-access-button {
+    padding: 1.2rem 2.5rem;
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.early-access-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Launch Timeline */
+.launch-timeline {
+    position: relative;
+    margin: 3rem 0;
+    padding: 2rem;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.timeline-date {
+    min-width: 120px;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--text-muted);
+}
+
+.timeline-content {
+    flex: 1;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border-left: 3px solid #667eea;
+}
+
+.timeline-title {
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.timeline-description {
+    font-size: 1.4rem;
+    color: var(--text-muted);
+}
+
+/* Modified Project Actions */
+.project-actions.development {
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.btn-early-access {
+    background: linear-gradient(135deg, #f39c12 0%, #e74c3c 100%);
+}
+
+.btn-early-access:hover {
+    box-shadow: 0 6px 25px rgba(243, 156, 18, 0.4);
+}
+
+.btn-preview {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-preview:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Feature List */
+.planned-features {
+    margin-top: 2rem;
+}
+
+.planned-features-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.feature-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.feature-list-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.4rem;
+    color: var(--text-muted);
+}
+
+.feature-list-item i {
+    color: #667eea;
+    font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .development-badge {
+        font-size: 1.2rem;
+        padding: 0.6rem 1.2rem;
+    }
+    
+    .early-access-form {
+        flex-direction: column;
+    }
+    
+    .feature-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .development-phases {
+        flex-wrap: wrap;
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

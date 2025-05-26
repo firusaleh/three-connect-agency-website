@@ -1,0 +1,129 @@
+/* ================================================
+   CRITICAL CSS - ABOVE THE FOLD
+   Inline this for optimal performance
+   ================================================ */
+
+/* Critical Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: #fff;
+    background: #0d1117;
+    overflow-x: hidden;
+}
+
+/* Preloader Critical */
+.preloader-2025 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0d1117;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease;
+}
+
+.preloader-2025.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Navigation Critical */
+.nav-2025 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(13, 17, 23, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+}
+
+/* Hero Critical */
+.hero-2025 {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video-container video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+/* Font Loading */
+.fonts-loaded body {
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Reduce Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Mobile Performance */
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none !important;
+    }
+    
+    .video-container {
+        display: none;
+    }
+    
+    .hero-2025 {
+        background: linear-gradient(135deg, #0d1117 0%, #1a0033 100%);
+    }
+}
+
+/* Loading States */
+.loading {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loaded {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
+}

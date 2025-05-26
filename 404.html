@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Seite nicht gefunden | Three Connect</title>
+    <meta name="description" content="Die angeforderte Seite wurde nicht gefunden. Zurück zur Startseite von Three Connect.">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .error-content {
+            max-width: 600px;
+        }
+        
+        .error-code {
+            font-size: 12rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 2rem;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .error-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+        
+        .error-message {
+            font-size: 1.8rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+        
+        .error-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .error-button {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.6rem;
+            transition: all 0.3s ease;
+        }
+        
+        .error-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .error-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .error-button.secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+        
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 8rem;
+            }
+            
+            .error-title {
+                font-size: 2.5rem;
+            }
+            
+            .error-message {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-page">
+        <div class="error-content">
+            <div class="error-code">404</div>
+            <h1 class="error-title">Seite nicht gefunden</h1>
+            <p class="error-message">
+                Die von Ihnen gesuchte Seite existiert leider nicht. 
+                Möglicherweise wurde sie verschoben oder der Link ist fehlerhaft.
+            </p>
+            <div class="error-buttons">
+                <a href="/" class="error-button">Zur Startseite</a>
+                <a href="/#contact" class="error-button secondary">Kontakt aufnehmen</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

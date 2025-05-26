@@ -1,0 +1,412 @@
+/* ===================================
+   MODERN 2025 DESIGN SYSTEM
+   Ultra-modern design with neuomorphism,
+   dynamic gradients, and cutting-edge aesthetics
+   =================================== */
+
+/* CSS Variables for Dynamic Theming */
+:root {
+    /* Modern Color Palette */
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --dark-gradient: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    
+    /* Neuomorphism Colors */
+    --neu-bg: #e0e5ec;
+    --neu-bg-dark: #1a1a2e;
+    --neu-light: #ffffff;
+    --neu-shadow: #a3b1c6;
+    --neu-dark-shadow: #0f0f1e;
+    
+    /* Text Colors */
+    --text-primary: #2d3748;
+    --text-primary-dark: #f7fafc;
+    --text-muted: #718096;
+    --text-accent: #667eea;
+    
+    /* Dynamic Variables */
+    --glow-intensity: 0.5;
+    --animation-speed: 0.3s;
+    --border-radius: 20px;
+    --border-radius-lg: 30px;
+    
+    /* Typography - Variable Fonts */
+    --font-display: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    /* Spacing System */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 6rem;
+}
+
+/* Dark Mode Variables */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --neu-bg: var(--neu-bg-dark);
+        --text-primary: var(--text-primary-dark);
+    }
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+    scroll-behavior: smooth;
+    scroll-padding-top: 8rem;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--neu-bg);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Modern Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-md);
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+h1 {
+    font-size: clamp(4rem, 8vw, 8rem);
+    font-weight: 900;
+}
+
+h2 {
+    font-size: clamp(3rem, 6vw, 5.6rem);
+}
+
+h3 {
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
+}
+
+/* Neuomorphic Components */
+.neu-card {
+    background: var(--neu-bg);
+    border-radius: var(--border-radius);
+    padding: var(--space-md);
+    position: relative;
+    overflow: hidden;
+    transition: all var(--animation-speed) cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 
+        6px 6px 12px var(--neu-shadow),
+        -6px -6px 12px var(--neu-light);
+}
+
+.neu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        12px 12px 24px var(--neu-shadow),
+        -12px -12px 24px var(--neu-light);
+}
+
+.neu-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 3rem;
+    border: none;
+    border-radius: 50px;
+    background: var(--neu-bg);
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1.6rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all var(--animation-speed) ease;
+    box-shadow: 
+        5px 5px 10px var(--neu-shadow),
+        -5px -5px 10px var(--neu-light);
+}
+
+.neu-button:hover {
+    transform: scale(1.02);
+    box-shadow: 
+        8px 8px 16px var(--neu-shadow),
+        -8px -8px 16px var(--neu-light);
+}
+
+.neu-button:active {
+    transform: scale(0.98);
+    box-shadow: 
+        inset 3px 3px 6px var(--neu-shadow),
+        inset -3px -3px 6px var(--neu-light);
+}
+
+/* Gradient Buttons */
+.gradient-button {
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    padding: 1.5rem 4rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.8rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.gradient-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.5s ease;
+}
+
+.gradient-button:hover {
+    transform: rotateX(-10deg) scale(1.05);
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.5);
+}
+
+.gradient-button:hover::before {
+    left: 100%;
+}
+
+/* Dynamic Video Overlays */
+.video-section {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dynamic-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        rgba(102, 126, 234, 0.8) 0%,
+        rgba(118, 75, 162, 0.6) 50%,
+        rgba(240, 147, 251, 0.4) 100%
+    );
+    mix-blend-mode: multiply;
+    z-index: -1;
+    animation: overlayShift 10s ease-in-out infinite;
+}
+
+@keyframes overlayShift {
+    0%, 100% { opacity: 0.8; transform: scale(1) rotate(0deg); }
+    50% { opacity: 0.6; transform: scale(1.1) rotate(5deg); }
+}
+
+/* Particle Effects */
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: float 15s infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh) translateX(100px);
+        opacity: 0;
+    }
+}
+
+/* 3D Transform Cards */
+.card-3d {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius);
+    padding: var(--space-md);
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+}
+
+.card-3d:hover {
+    transform: rotateY(10deg) rotateX(-10deg) translateZ(50px);
+}
+
+.card-3d::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: var(--accent-gradient);
+    border-radius: var(--border-radius);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card-3d:hover::before {
+    opacity: 1;
+}
+
+/* Micro-interactions */
+.micro-animate {
+    transition: all 0.2s ease;
+}
+
+.micro-animate:hover {
+    transform: translateY(-2px);
+}
+
+/* Custom Cursor */
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--text-accent);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: all 0.1s ease;
+    transform: translate(-50%, -50%);
+}
+
+.custom-cursor.hover {
+    width: 40px;
+    height: 40px;
+    background: rgba(102, 126, 234, 0.1);
+}
+
+/* Scroll Animations */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Grid System */
+.container-2025 {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+.grid-2025 {
+    display: grid;
+    gap: var(--space-md);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Performance Optimizations */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Loading States */
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        var(--neu-shadow) 25%,
+        var(--neu-light) 50%,
+        var(--neu-shadow) 75%
+    );
+    background-size: 200% 100%;
+    animation: loading 1.5s ease-in-out infinite;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Accessibility Focus States */
+*:focus-visible {
+    outline: 3px solid var(--text-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Modern Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--neu-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-gradient);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-gradient);
+}

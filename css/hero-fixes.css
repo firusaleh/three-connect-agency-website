@@ -1,0 +1,146 @@
+/* Hero-Text-Fix und Animationen */
+
+/* Grundlegende Text-Darstellung verbessern */
+.hero-title {
+    font-size: 7.2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 3rem;
+    color: var(--text-light); /* Explizite Textfarbe setzen */
+    /* Entferne die Animation, die Probleme verursachen könnte */
+    opacity: 1 !important;
+    transform: none !important;
+    /* Verbesserte Lesbarkeit */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    color: var(--accent-color);
+    margin-bottom: 2rem;
+    /* Entferne die Animation, die Probleme verursachen könnte */
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+.hero-description {
+    font-size: 2rem;
+    color: var(--text-muted);
+    margin-bottom: 4rem;
+    max-width: 600px;
+    line-height: 1.8;
+    /* Entferne die Animation, die Probleme verursachen könnte */
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Fix für den Typed-Text Effekt */
+.typed-text {
+    color: var(--accent-color);
+    position: relative;
+    display: inline-block;
+    min-width: 200px; /* Feste Breite, um Layout-Verschiebungen zu vermeiden */
+    min-height: 1.2em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Verbesserte Hero-Buttons */
+.hero-buttons {
+    display: flex;
+    gap: 2rem;
+    /* Entferne die Animation, die Probleme verursachen könnte */
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Verbesserte Trust-Badges */
+.hero-trust-badges {
+    display: flex;
+    gap: 3rem;
+    margin-top: 4rem;
+    /* Entferne die Animation, die Probleme verursachen könnte */
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Verbesserte Hero-Stats */
+.hero-stats {
+    display: flex;
+    gap: 5rem;
+    position: absolute;
+    bottom: 5rem;
+    right: 5rem;
+    /* Entferne die Animation, die Probleme verursachen könnte */
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Medienabfragen für verschiedene Bildschirmgrößen */
+@media (max-width: 1200px) {
+    .hero-title {
+        font-size: 6rem;
+    }
+    
+    .typed-text {
+        min-width: 160px;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 5rem;
+    }
+    
+    .hero-stats {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        margin-top: 5rem;
+    }
+    
+    .typed-text {
+        min-width: 140px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding: 15rem 0 8rem;
+    }
+    
+    .hero-title {
+        font-size: 4.2rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .hero-trust-badges {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .typed-text {
+        min-width: 120px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 3.6rem;
+    }
+    
+    .hero-description {
+        font-size: 1.6rem;
+    }
+    
+    .typed-text {
+        min-width: 100px;
+    }
+}

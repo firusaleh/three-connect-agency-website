@@ -1,0 +1,181 @@
+/* ===================================
+   HERO TRUST BADGES FIX
+   Gezielte Korrektur der Trust-Badges Positionierung
+   =================================== */
+
+/* Korrigiere die Hero-Trust-Badges Position und Aussehen */
+.hero-trust-badges {
+    /* Reset aller Positionierungen */
+    position: relative !important;
+    display: flex !important;
+    gap: 2rem !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    
+    /* Sichtbarkeit und Layout */
+    margin-top: 3rem !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    
+    /* Z-Index korrigieren */
+    z-index: 1 !important;
+    
+    /* Hintergrund entfernen falls vorhanden */
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    
+    /* Keine absoluten Positionierungen */
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    
+    /* Transformationen zurücksetzen */
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    
+    /* Breite begrenzen */
+    width: 100% !important;
+    max-width: none !important;
+}
+
+/* Korrigiere die einzelnen Trust-Badges */
+.trust-badge {
+    /* Reset Positionierung */
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.8rem !important;
+    
+    /* Keine Hintergründe oder Rahmen */
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    
+    /* Padding anpassen */
+    padding: 0.5rem !important;
+    margin: 0 !important;
+    
+    /* Z-Index niedrig halten */
+    z-index: auto !important;
+    
+    /* Sichtbarkeit sicherstellen */
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Trust-Icon Styling verbessern */
+.trust-icon {
+    /* Feste Größe */
+    width: 3rem !important;
+    height: 3rem !important;
+    min-width: 3rem !important;
+    min-height: 3rem !important;
+    
+    /* Flexbox für Zentrierung */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+    /* Sanfter Hintergrund */
+    background: rgba(102, 126, 234, 0.1) !important;
+    border-radius: 50% !important;
+    
+    /* Icon Farbe */
+    color: #667eea !important;
+    font-size: 1.4rem !important;
+    
+    /* Keine Schatten oder Borders */
+    box-shadow: none !important;
+    border: none !important;
+    
+    /* Transition für Hover */
+    transition: all 0.3s ease !important;
+}
+
+/* Trust-Badge Text */
+.trust-badge span {
+    /* Text Styling */
+    font-size: 1.4rem !important;
+    font-weight: 500 !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    white-space: nowrap !important;
+    
+    /* Keine Hintergründe */
+    background: transparent !important;
+    
+    /* Sichtbarkeit */
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Hover Effekte */
+.trust-badge:hover .trust-icon {
+    background: rgba(102, 126, 234, 0.2) !important;
+    transform: scale(1.1) !important;
+}
+
+.trust-badge:hover span {
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .hero-trust-badges {
+        gap: 1.5rem !important;
+        margin-top: 2rem !important;
+        justify-content: center !important;
+    }
+    
+    .trust-badge {
+        flex-basis: 100% !important;
+        justify-content: center !important;
+        padding: 0.3rem !important;
+    }
+    
+    .trust-icon {
+        width: 2.5rem !important;
+        height: 2.5rem !important;
+        min-width: 2.5rem !important;
+        min-height: 2.5rem !important;
+        font-size: 1.2rem !important;
+    }
+    
+    .trust-badge span {
+        font-size: 1.3rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-trust-badges {
+        gap: 1rem !important;
+    }
+    
+    .trust-badge {
+        gap: 0.6rem !important;
+    }
+    
+    .trust-badge span {
+        font-size: 1.2rem !important;
+    }
+}
+
+/* OPTION: Falls die Badges weiterhin Probleme verursachen, ausblenden */
+/* Kommentar entfernen um zu aktivieren:
+.hero-trust-badges {
+    display: none !important;
+}
+*/
+
+/* Debug-Hilfe: Zeigt roten Rahmen um Badges (bei Bedarf aktivieren) */
+/* 
+.hero-trust-badges {
+    outline: 2px solid red !important;
+}
+.trust-badge {
+    outline: 1px solid yellow !important;
+}
+*/

@@ -1,0 +1,304 @@
+/* Subtle Enhancements - Sanfte Modernisierung */
+
+/* Smooth Fade-in Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Enhanced Button Hover Effects */
+.btn, .cta-button, [class*="button"] {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn::before, .cta-button::before, [class*="button"]::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before, .cta-button:hover::before, [class*="button"]:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn:hover, .cta-button:hover, [class*="button"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* Subtle Parallax Effect */
+.parallax-subtle {
+    transition: transform 0.5s ease-out;
+    will-change: transform;
+}
+
+/* Enhanced Glassmorphism */
+.glass-enhanced {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Subtle Glow on CTAs */
+.cta-glow {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.cta-glow::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: inherit;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    filter: blur(8px);
+}
+
+.cta-glow:hover::after {
+    opacity: 0.5;
+}
+
+/* Improved Card Shadows */
+.neu-card {
+    transition: all 0.3s ease;
+}
+
+.neu-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        8px 8px 16px #c8ccd4,
+        -8px -8px 16px #ffffff,
+        0 4px 20px rgba(102, 126, 234, 0.1);
+}
+
+/* Trust Badge Enhancements */
+.trust-badge {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.trust-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.trust-badge:hover::before {
+    left: 100%;
+}
+
+/* Smooth Scroll Reveal */
+[data-scroll] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-scroll].in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Sticky CTA Button (Dezent) */
+.sticky-cta {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.3s ease;
+}
+
+.sticky-cta.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sticky-cta-button {
+    display: flex;
+    align-items: center;
+    padding: 1.2rem 2.4rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s ease;
+}
+
+.sticky-cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Enhanced Form Inputs */
+input, textarea, select {
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Better Mobile Menu Animation */
+.mobile-menu {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Section Separators */
+.section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #667eea, transparent);
+    transform: translateX(-50%);
+}
+
+/* Loading State for Images */
+img {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+img.loaded {
+    opacity: 1;
+}
+
+/* Micro-interactions */
+.interactive {
+    transition: all 0.2s ease;
+}
+
+.interactive:active {
+    transform: scale(0.98);
+}
+
+/* Enhanced Typography */
+h1, h2, h3, h4, h5, h6 {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Smooth Video Loading */
+.video-container {
+    position: relative;
+}
+
+.video-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    opacity: 0.1;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.video-loaded .video-container::before {
+    opacity: 0;
+}
+
+/* Performance Optimizations */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Modern Focus Styles */
+:focus-visible {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* Enhanced Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #764ba2;
+}
+
+/* Responsive Improvements */
+@media (max-width: 768px) {
+    .section {
+        padding: 4rem 0;
+    }
+    
+    h1 {
+        font-size: 3.2rem;
+    }
+    
+    h2 {
+        font-size: 2.4rem;
+    }
+    
+    .sticky-cta {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .sticky-cta-button {
+        padding: 1rem 2rem;
+        font-size: 1.4rem;
+    }
+}

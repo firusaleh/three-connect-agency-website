@@ -1,0 +1,128 @@
+/* ===================================
+   VISIBILITY FIXES
+   Critical fixes to ensure all content is visible
+   =================================== */
+
+/* Ensure all sections are visible */
+section,
+.section {
+    position: relative !important;
+    z-index: 1 !important;
+    min-height: 100vh;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Fix video containers blocking content */
+.video-container,
+.video-bg,
+.process-video-container {
+    position: absolute !important;
+    z-index: -1 !important;
+    pointer-events: none !important;
+}
+
+/* Ensure content containers are above video */
+.container,
+.container-2025 {
+    position: relative !important;
+    z-index: 10 !important;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Fix overlays blocking content */
+.video-overlay,
+.dynamic-overlay {
+    pointer-events: none !important;
+    z-index: 0 !important;
+}
+
+/* Ensure main content area is visible */
+main {
+    position: relative !important;
+    z-index: 1 !important;
+    min-height: 100vh;
+    display: block !important;
+}
+
+/* Fix navigation z-index */
+.nav-2025 {
+    z-index: 1000 !important;
+}
+
+/* Ensure sections have proper spacing */
+.hero-2025,
+.about-2025,
+.services-2025,
+.process-section,
+.projects-2025,
+.contact-2025 {
+    padding: 8rem 0 !important;
+    overflow: visible !important;
+}
+
+/* Ensure projects section is visible */
+.projects-2025 .projects-showcase,
+.projects-2025 .project-item,
+.projects-2025 .tab-controls {
+    position: relative !important;
+    z-index: 10 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Fix potential height issues */
+body {
+    min-height: 100vh !important;
+    overflow-x: hidden;
+    overflow-y: auto !important;
+}
+
+html {
+    overflow-x: hidden;
+    overflow-y: auto !important;
+    height: auto !important;
+}
+
+/* Ensure text is visible */
+h1, h2, h3, h4, h5, h6, p, span, a, li {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Fix potential animation issues */
+.fade-in-up,
+.fade-in,
+.scale-in,
+.slide-in {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Ensure process section content is visible */
+.process-cards-container {
+    position: relative !important;
+    z-index: 10 !important;
+    display: grid !important;
+}
+
+.process-card {
+    position: relative !important;
+    z-index: 10 !important;
+    opacity: 1 !important;
+}
+
+/* Fix preloader blocking content - removed to allow normal preloader function */
+/* .preloader-2025 {
+    display: none !important;
+} */
+
+/* Ensure footer is visible */
+.footer-2025 {
+    position: relative !important;
+    z-index: 1 !important;
+}

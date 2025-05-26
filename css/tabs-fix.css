@@ -1,0 +1,123 @@
+/* Tab System Fix - About Section and Others */
+
+/* About Section Tabs */
+.about-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.about-tab {
+    background: transparent;
+    border: 2px solid rgba(102, 126, 234, 0.3);
+    color: var(--text-primary);
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-tab::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-gradient);
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.about-tab:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+}
+
+.about-tab.active {
+    background: var(--primary-gradient);
+    color: white;
+    border-color: transparent;
+}
+
+.about-tab.active::before {
+    left: 0;
+}
+
+/* Tab Content - CRITICAL FIX */
+.about-content {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.about-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Projects Section Tabs (if needed) */
+.project-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.project-tabs .tab-button {
+    background: transparent;
+    border: 2px solid rgba(102, 126, 234, 0.3);
+    color: var(--text-primary);
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.project-tabs .tab-button.active {
+    background: var(--primary-gradient);
+    color: white;
+    border-color: transparent;
+}
+
+/* Project Content */
+.project-content {
+    display: none;
+}
+
+.project-content.active {
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about-tabs,
+    .project-tabs {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .about-tab,
+    .project-tabs .tab-button {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+}

@@ -1,0 +1,53 @@
+/* MoveMaster Content Fix */
+
+/* Ensure MoveMaster content is visible when active */
+#movemaster-project {
+    display: none;
+}
+
+#movemaster-project.active {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+/* Ensure all content within MoveMaster is visible */
+#movemaster-project .project-content,
+#movemaster-project .project-description,
+#movemaster-project .project-features,
+#movemaster-project .development-progress {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Fix for mobile view */
+@media (max-width: 1024px) {
+    #movemaster-project.active {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+}
+
+/* Ensure the project preview is also visible */
+#movemaster-project .project-preview {
+    display: block !important;
+    opacity: 1 !important;
+}
+
+/* Animation when switching tabs */
+#movemaster-project.active {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

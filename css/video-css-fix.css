@@ -1,0 +1,117 @@
+/* CSS für Video-Hintergründe und Sektionen */
+
+/* Allgemeine Einstellungen für alle Sektionen */
+.section {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Video-Hintergrund-Container */
+.video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+}
+
+/* Video-Element */
+.video-bg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8) contrast(1.1);
+}
+
+/* Video-Overlay */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(10, 15, 24, 0.85), rgba(19, 27, 41, 0.75));
+    z-index: -1;
+}
+
+/* Spezifische Anpassungen für jede Sektion */
+
+/* Hero-Sektion */
+#home {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+#home .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+/* Services-Sektion */
+#services {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* About-Sektion */
+#about {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Process-Sektion */
+#process {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Contact-Sektion */
+#contact {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* MatchBase-Sektion */
+#matchbase {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Fehler-Fallback für Videos */
+.video-error-fallback {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+/* Verbesserte iOS-Safari Kompatibilität */
+@supports (-webkit-touch-callout: none) {
+    .video-bg video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translateX(-50%) translateY(-50%);
+    }
+}
+
+/* Fix für Inhalte über den Videohintergründen */
+.container {
+    position: relative;
+    z-index: 2;
+}

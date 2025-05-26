@@ -1,0 +1,180 @@
+/* Video Backgrounds für alle Sektionen */
+
+/* Gemeinsame Stile für Videohintergründe */
+.video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.video-bg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6) contrast(1.2);
+    transform: scale(1.05);
+    transition: transform 10s ease;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(10, 15, 24, 0.85), rgba(19, 27, 41, 0.75));
+    z-index: -1;
+}
+
+/* Hero Section Video */
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7) contrast(1.2);
+    transform: scale(1.05);
+    transition: transform 10s ease;
+}
+
+.hero-overlay {
+    background: linear-gradient(135deg, rgba(10, 15, 24, 0.8), rgba(19, 27, 41, 0.7));
+}
+
+.hero-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 4 4"><circle cx="2" cy="2" r="0.5" fill="white" opacity="0.5"/></svg>');
+    background-size: 100px 100px;
+    opacity: 0.3;
+    animation: particles 150s linear infinite;
+}
+
+@keyframes particles {
+    0% { background-position: 0 0; }
+    100% { background-position: 1000px 1000px; }
+}
+
+/* Services Section Video */
+.services-video {
+    filter: brightness(0.5) saturate(1.1) contrast(1.3);
+}
+
+.services-overlay {
+    background: linear-gradient(to bottom, rgba(10, 15, 24, 0.9), rgba(19, 27, 41, 0.8));
+}
+
+.services-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 4 4"><circle cx="2" cy="2" r="0.5" fill="white" opacity="0.4"/></svg>');
+    background-size: 70px 70px;
+    opacity: 0.15;
+    animation: particles 120s linear infinite;
+}
+
+/* Projects Section Video */
+.projects-video {
+    filter: brightness(0.6) saturate(1.2) contrast(1.2);
+}
+
+.projects-overlay {
+    background: linear-gradient(to right, rgba(15, 20, 30, 0.9), rgba(25, 30, 50, 0.8));
+}
+
+.projects-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 4 4"><circle cx="2" cy="2" r="0.5" fill="white" opacity="0.3"/></svg>');
+    background-size: 80px 80px;
+    opacity: 0.2;
+    animation: particles 130s linear infinite;
+}
+
+/* About Section Video */
+.about-video {
+    filter: brightness(0.65) saturate(1.1) contrast(1.2);
+}
+
+.about-overlay {
+    background: linear-gradient(45deg, rgba(15, 20, 30, 0.9), rgba(25, 30, 50, 0.8));
+}
+
+/* Process Section Video */
+.process-video {
+    filter: brightness(0.55) saturate(1.2) contrast(1.25);
+}
+
+.process-overlay {
+    background: linear-gradient(to bottom, rgba(15, 20, 30, 0.85), rgba(25, 30, 50, 0.75));
+}
+
+/* Contact Section Video */
+.contact-video {
+    filter: brightness(0.5) saturate(1.1) contrast(1.3);
+}
+
+.contact-overlay {
+    background: linear-gradient(to top, rgba(10, 15, 24, 0.9), rgba(19, 27, 41, 0.8));
+}
+
+/* Video Fallback für Browser ohne Videounterstützung */
+.video-fallback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -3;
+}
+
+/* Optimierung für mobile Geräte */
+@media (max-width: 768px) {
+    .video-bg video {
+        display: none;
+    }
+    
+    .video-fallback {
+        z-index: -2;
+    }
+}
+
+/* Video Loading Error Handling */
+.video-error {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    z-index: -2;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.video-error.active {
+    opacity: 1;
+}

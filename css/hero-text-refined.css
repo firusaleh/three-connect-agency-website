@@ -1,0 +1,237 @@
+/* Hero Text Design Refinements */
+
+/* Override Hero Text Styles for Better Readability */
+
+/* Hero Container - Better Spacing */
+.hero-container {
+    padding: 0 4rem;
+    gap: 6rem;
+}
+
+/* Text Content Area - Enhanced */
+.hero-text-content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+}
+
+/* Add Glassmorphism Background to Text Area */
+.hero-text-content::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: -40px;
+    right: -40px;
+    bottom: -40px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(20px);
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: -1;
+}
+
+/* Hero Badge - Better Contrast */
+.hero-badge {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+}
+
+/* Hero Title - Refined Typography */
+.hero-title {
+    font-size: clamp(4.5rem, 8vw, 8rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 2.5rem;
+    color: #fff;
+    text-shadow: 
+        0 2px 10px rgba(0, 0, 0, 0.5),
+        0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Gradient Text - More Subtle */
+.gradient-glitch {
+    background: linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #f0f0f0 25%,
+        #667eea 50%,
+        #764ba2 75%,
+        #ffffff 100%
+    );
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientFlow 6s ease infinite;
+    position: relative;
+    padding-right: 10px;
+    display: inline-block;
+    min-width: 200px;
+}
+
+/* Typing Cursor - Using separate element */
+.typing-cursor::after {
+    content: '|';
+    display: inline-block;
+    position: absolute;
+    margin-left: 2px;
+    color: #667eea;
+    font-weight: 300;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Hero Subtitle - Enhanced Readability */
+.hero-subtitle {
+    font-size: 1.7rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 3.5rem;
+    padding: 2.5rem;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    font-weight: 400;
+}
+
+.hero-subtitle strong {
+    color: #667eea;
+    font-weight: 600;
+    text-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+}
+
+/* CTA Buttons - Refined */
+.hero-cta-group {
+    margin-bottom: 5rem;
+}
+
+.hero-cta-primary {
+    padding: 1.8rem 3.5rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    box-shadow: 
+        0 10px 30px rgba(102, 126, 234, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.hero-cta-primary::before {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.hero-cta-ghost {
+    padding: 1.8rem 3.5rem;
+    font-size: 1.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+/* Trust Pills - Better Visibility */
+.trust-pill {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1.2rem 2rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+    box-shadow: 
+        0 8px 24px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.trust-pill i {
+    font-size: 1.6rem;
+}
+
+/* Better Text Hierarchy */
+@media (min-width: 1400px) {
+    .hero-title {
+        font-size: 9rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.9rem;
+        line-height: 1.8;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .hero-text-content::before {
+        top: -20px;
+        left: -20px;
+        right: -20px;
+        bottom: -20px;
+    }
+    
+    .hero-title {
+        font-size: clamp(3.5rem, 10vw, 6rem);
+    }
+    
+    .hero-subtitle {
+        font-size: 1.5rem;
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-container {
+        padding: 0 2rem;
+    }
+    
+    .hero-text-content::before {
+        border-radius: 24px;
+    }
+    
+    .hero-title {
+        font-size: clamp(3rem, 11vw, 5rem);
+        margin-bottom: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.3rem;
+        line-height: 1.6;
+        padding: 1.5rem;
+    }
+    
+    .hero-cta-primary,
+    .hero-cta-ghost {
+        padding: 1.5rem 2.5rem;
+        font-size: 1.4rem;
+    }
+    
+    .trust-pill {
+        padding: 1rem 1.5rem;
+        font-size: 1.2rem;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .hero-text-content::before {
+        background: rgba(0, 0, 0, 0.7);
+    }
+    
+    .hero-title {
+        text-shadow: 
+            0 2px 4px rgba(0, 0, 0, 0.9),
+            0 4px 8px rgba(0, 0, 0, 0.7);
+    }
+}

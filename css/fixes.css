@@ -1,0 +1,319 @@
+/* Zusätzliche Fixe und Korrekturen für die Website */
+
+/* Fix für Video-Hintergründe */
+.video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(10, 15, 24, 0.85), rgba(19, 27, 41, 0.75));
+    z-index: -1;
+}
+
+.section {
+    position: relative;
+    z-index: 1;
+}
+
+/* Fix für Staggered-Fade-In Effekte */
+.staggered-fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0s, transform 0s;
+}
+
+.staggered-fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1s var(--easing), transform 1s var(--easing);
+}
+
+/* Fix für Pulse-Button Effekte */
+.pulse-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.pulse-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    animation: pulse 2s infinite;
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7);
+    z-index: -1;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(52, 152, 219, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+    }
+}
+
+/* Fix für Mobile-Menu */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s var(--easing);
+    transform: translateY(-10px);
+}
+
+.mobile-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Fix für Preloader */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+/* Fixes für Formulare */
+.form-control:focus {
+    outline: none;
+}
+
+.input-container.focused {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(52, 152, 219, 0.1);
+}
+
+.textarea-container .input-icon {
+    top: 2rem;
+    transform: none;
+}
+
+/* Fix für Cookie-Consent */
+.cookie-consent {
+    display: none;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.5s var(--easing);
+}
+
+.cookie-consent.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fix für Back-to-Top Button */
+.back-to-top {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.5s var(--easing);
+    z-index: 99;
+}
+
+.back-to-top.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Fix für die Counter-Animation */
+.stat-number, .about-stat-number, .mb-stat-number {
+    transition: color 0.3s ease;
+}
+
+/* Kosmetische Verbesserungen für Sektionsübergänge */
+section {
+    overflow-x: hidden;
+}
+
+/* Verbesserte Fallbacks für iOS Safari */
+@supports (-webkit-overflow-scrolling: touch) {
+    .parallax-bg, .hero-content, .services-decor {
+        /* Deaktiviere Parallax auf iOS */
+        transform: none !important;
+        background-attachment: scroll !important;
+    }
+    
+    input, textarea {
+        /* Verbesserte Darstellung von Formularelementen */
+        -webkit-appearance: none;
+        border-radius: var(--border-radius-md);
+    }
+    
+    /* Fix für 100vh in iOS */
+    .hero, .mobile-menu {
+        height: calc(100vh - 100px);
+        min-height: 600px;
+    }
+    
+    /* Fix für Sticky-Positioning */
+    header {
+        position: fixed;
+        -webkit-backface-visibility: hidden;
+    }
+}
+
+/* Verbesserte Zugänglichkeit */
+:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Unterstützung für CSS-Variablen in älteren Browsern */
+.no-cssvar body {
+    /* Fallback-Farben für Browser ohne CSS-Variablen-Unterstützung */
+    background-color: #0a0f18;
+    color: #f0f0f0;
+}
+
+/* Fix für Hero-Sektion */
+.hero {
+    position: relative;
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+/* Fix für die Testimonial-Sektion */
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.author-image {
+    width: 4.8rem;
+    height: 4.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--accent-color);
+}
+
+.author-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Fix für MatchBase-Sektion */
+.matchbase-section .dashboard-preview {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-lg);
+    max-width: 100%;
+}
+
+.matchbase-section .preview-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Fix für Footer */
+#main-footer {
+    position: relative;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.footer-wave {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    line-height: 0;
+}
+
+/* Fix für service-card bei Hover */
+.service-card:hover .service-card-inner {
+    transform: translateY(-15px);
+    border-color: var(--accent-color);
+    box-shadow: var(--shadow-md), var(--shadow-glow);
+}
+
+/* Fix für fehlende Stile in der Prozess-Sektion */
+.process-step:hover .step-icon {
+    background: var(--accent-gradient);
+    color: var(--text-light);
+    transform: rotate(10deg);
+}
+
+/* Print-Optimierung für bessere Druckbarkeit */
+@media print {
+    .preloader, header, .cookie-consent, .mobile-menu, .back-to-top, video {
+        display: none !important;
+    }
+    
+    body {
+        background-color: white !important;
+        color: black !important;
+    }
+    
+    .section {
+        padding: 2rem 0 !important;
+        page-break-inside: avoid;
+    }
+    
+    .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+    }
+    
+    a {
+        color: black !important;
+        text-decoration: none !important;
+    }
+    
+    .video-bg, .video-overlay {
+        display: none !important;
+    }
+}

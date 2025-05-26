@@ -1,0 +1,104 @@
+/* Performance Optimizations */
+
+/* Optimize Web Fonts */
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-display: swap;
+}
+
+/* Hardware Acceleration for Animations */
+.fade-in,
+.parallax-subtle,
+.neu-card,
+.gradient-button,
+.video-container {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Optimize Image Loading */
+img {
+    loading: lazy;
+    decoding: async;
+}
+
+/* Reduce Paint Areas */
+.section {
+    contain: layout style paint;
+}
+
+/* Optimize Video Performance */
+video {
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* Remove Animations on Low-End Devices */
+@media (max-width: 768px) and (max-height: 600px) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Optimize Shadows for Performance */
+@media (min-width: 769px) {
+    .neu-card {
+        box-shadow: 
+            4px 4px 8px rgba(200, 204, 212, 0.5),
+            -4px -4px 8px rgba(255, 255, 255, 0.7);
+    }
+}
+
+/* Reduce Blur Effects on Mobile */
+@media (max-width: 768px) {
+    .glass-enhanced {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+}
+
+/* Optimize Gradient Animations */
+@media (prefers-reduced-motion: no-preference) {
+    .gradient-shift {
+        animation: gradient-shift 15s ease infinite;
+        animation-delay: 0s;
+        animation-fill-mode: both;
+    }
+}
+
+/* Lazy Load Background Images */
+[data-bg] {
+    background: none !important;
+}
+
+[data-bg].loaded {
+    transition: opacity 0.3s ease;
+}
+
+/* Optimize Hover States */
+@media (hover: hover) and (pointer: fine) {
+    .btn:hover,
+    .neu-card:hover,
+    .gradient-button:hover {
+        transition: all 0.3s ease;
+    }
+}
+
+/* Critical Rendering Path */
+.above-the-fold {
+    content-visibility: auto;
+}
+
+.below-the-fold {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
+}

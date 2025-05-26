@@ -1,0 +1,40 @@
+/* Simple Static Logo - No Animations */
+
+.nav-logo {
+    position: relative;
+    z-index: 10;
+}
+
+.nav-logo a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    transition: opacity 0.2s ease;
+}
+
+.nav-logo a:hover {
+    opacity: 0.8;
+}
+
+/* Remove any animations */
+.logo-wrapper,
+.logo-letter,
+.logo-part-three,
+.logo-part-connect,
+.logo-glow,
+.logo-tagline {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .nav-logo a {
+        font-size: 2rem;
+    }
+}

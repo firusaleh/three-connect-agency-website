@@ -1,0 +1,445 @@
+/* Glitch Effects & Distortions */
+
+/* Main Glitch Text Effect */
+.glitch {
+    position: relative;
+    display: inline-block;
+    color: var(--text-primary);
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    animation: glitch-1 0.3s infinite;
+    color: var(--neon-cyan);
+    z-index: -2;
+    opacity: 0.8;
+}
+
+.glitch::after {
+    animation: glitch-2 0.3s infinite;
+    color: var(--neon-magenta);
+    z-index: -1;
+    opacity: 0.8;
+}
+
+@keyframes glitch-1 {
+    0%, 100% {
+        clip: rect(0, 900px, 0, 0);
+        transform: skew(0deg);
+    }
+    20% {
+        clip: rect(20px, 900px, 40px, 0);
+        transform: skew(0.5deg);
+    }
+    40% {
+        clip: rect(60px, 900px, 100px, 0);
+        transform: skew(1deg);
+    }
+    60% {
+        clip: rect(30px, 900px, 70px, 0);
+        transform: skew(-0.5deg);
+    }
+    80% {
+        clip: rect(80px, 900px, 120px, 0);
+        transform: skew(0.3deg);
+    }
+}
+
+@keyframes glitch-2 {
+    0%, 100% {
+        clip: rect(0, 900px, 0, 0);
+        transform: skew(0deg);
+    }
+    20% {
+        clip: rect(40px, 900px, 80px, 0);
+        transform: skew(-0.5deg);
+    }
+    40% {
+        clip: rect(10px, 900px, 50px, 0);
+        transform: skew(-1deg);
+    }
+    60% {
+        clip: rect(70px, 900px, 110px, 0);
+        transform: skew(0.5deg);
+    }
+    80% {
+        clip: rect(25px, 900px, 65px, 0);
+        transform: skew(-0.3deg);
+    }
+}
+
+/* Logo Glitch */
+.logo-glitch[data-text] {
+    position: relative;
+    display: inline-block;
+}
+
+.logo-glitch[data-text]:hover::before,
+.logo-glitch[data-text]:hover::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.logo-glitch[data-text]:hover::before {
+    animation: logo-glitch-1 0.5s ease-out;
+    color: var(--neon-cyan);
+    z-index: -2;
+}
+
+.logo-glitch[data-text]:hover::after {
+    animation: logo-glitch-2 0.5s ease-out;
+    color: var(--neon-magenta);
+    z-index: -1;
+}
+
+@keyframes logo-glitch-1 {
+    0%, 100% {
+        opacity: 0;
+    }
+    33% {
+        opacity: 1;
+        transform: translateX(-2px);
+    }
+    66% {
+        opacity: 1;
+        transform: translateX(2px);
+    }
+}
+
+@keyframes logo-glitch-2 {
+    0%, 100% {
+        opacity: 0;
+    }
+    33% {
+        opacity: 1;
+        transform: translateX(2px);
+    }
+    66% {
+        opacity: 1;
+        transform: translateX(-2px);
+    }
+}
+
+/* Scan Line Effect */
+.scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--neon-cyan),
+        transparent
+    );
+    animation: scan-line 8s linear infinite;
+    pointer-events: none;
+    z-index: 5;
+}
+
+@keyframes scan-line {
+    0% {
+        top: 0;
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+/* Digital Noise */
+.digital-noise {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.03;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.digital-noise::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.03) 2px,
+            rgba(255, 255, 255, 0.03) 4px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.03) 2px,
+            rgba(255, 255, 255, 0.03) 4px
+        );
+}
+
+/* Distortion on Hover */
+.distort-hover {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.distort-hover:hover {
+    animation: distort 0.3s ease-out;
+}
+
+@keyframes distort {
+    0%, 100% {
+        transform: skew(0deg);
+    }
+    20% {
+        transform: skew(1deg);
+    }
+    40% {
+        transform: skew(-1deg);
+    }
+    60% {
+        transform: skew(0.5deg);
+    }
+    80% {
+        transform: skew(-0.5deg);
+    }
+}
+
+/* RGB Split Effect */
+.rgb-split {
+    position: relative;
+}
+
+.rgb-split:hover {
+    animation: rgb-split 0.5s ease-out;
+}
+
+@keyframes rgb-split {
+    0%, 100% {
+        text-shadow: none;
+    }
+    25% {
+        text-shadow: 
+            -2px 0 var(--neon-cyan),
+            2px 0 var(--neon-magenta);
+    }
+    50% {
+        text-shadow: 
+            -3px 0 var(--neon-cyan),
+            3px 0 var(--neon-magenta);
+    }
+    75% {
+        text-shadow: 
+            -1px 0 var(--neon-cyan),
+            1px 0 var(--neon-magenta);
+    }
+}
+
+/* Chromatic Aberration */
+.chromatic-aberration {
+    position: relative;
+}
+
+.chromatic-aberration::before,
+.chromatic-aberration::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    mix-blend-mode: multiply;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.chromatic-aberration:hover::before {
+    transform: translateX(-2px);
+    filter: hue-rotate(180deg);
+    opacity: 0.5;
+}
+
+.chromatic-aberration:hover::after {
+    transform: translateX(2px);
+    filter: hue-rotate(-180deg);
+    opacity: 0.5;
+}
+
+/* Data Corruption Effect */
+.data-corrupt {
+    position: relative;
+    overflow: hidden;
+}
+
+.data-corrupt::before {
+    content: '01001000 01100101 01101100 01101100 01101111';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--cyber-black);
+    color: var(--matrix-green);
+    font-family: monospace;
+    font-size: 10px;
+    padding: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.data-corrupt:hover::before {
+    animation: data-corrupt 0.5s ease-out;
+}
+
+@keyframes data-corrupt {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Static Overlay */
+.static-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 5;
+    animation: static-fade 10s infinite;
+}
+
+.static-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.15),
+            rgba(0, 0, 0, 0.15) 1px,
+            transparent 1px,
+            transparent 2px
+        );
+}
+
+@keyframes static-fade {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.1;
+    }
+}
+
+/* Glitch Button */
+.glitch-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.glitch-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+}
+
+.glitch-button:hover::before {
+    animation: glitch-slide 0.5s ease-out;
+}
+
+@keyframes glitch-slide {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* VHS Effect */
+.vhs-effect {
+    position: relative;
+}
+
+.vhs-effect::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.03) 2px,
+            rgba(255, 255, 255, 0.03) 4px
+        );
+    pointer-events: none;
+    animation: vhs-tracking 5s linear infinite;
+}
+
+@keyframes vhs-tracking {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    20% {
+        transform: translateY(2px);
+    }
+    40% {
+        transform: translateY(-2px);
+    }
+    60% {
+        transform: translateY(1px);
+    }
+    80% {
+        transform: translateY(-1px);
+    }
+}
