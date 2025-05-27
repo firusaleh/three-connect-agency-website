@@ -117,6 +117,11 @@
     <link rel="stylesheet" href="css/typing-text-fix.css">
     <link rel="stylesheet" href="css/movemaster-fix.css">
     
+    <!-- Mobile Optimization -->
+    <link rel="stylesheet" href="css/mobile-optimization.css">
+    <link rel="stylesheet" href="css/mobile-header.css">
+    <link rel="stylesheet" href="css/mobile-hero.css">
+    
     <!-- Inline Fix für Trust Badges (höchste Priorität) -->
     <style>
         /* Ultimative Korrektur für Hero Trust Badges */
@@ -187,7 +192,16 @@
                 </ul>
             </div>
             
-            <div class="nav-actions">
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menü öffnen">
+                <span class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+            
+            <div class="nav-actions desktop-only">
                 <button class="sound-toggle" aria-label="Sound-Effekte umschalten" data-sound="off">
                     <i class="fas fa-volume-mute"></i>
                 </button>
@@ -1469,6 +1483,7 @@
     <script src="js/hero-trust-badges-check.js"></script>
     <script src="js/tabs-functionality.js"></script>
     <script src="js/hero-2025-effects.js"></script>
+    <script src="js/mobile-navigation.js"></script>
     <script src="js/header-improvements.js" defer></script>
     <script src="js/enhanced-video-system.js" defer></script>
     <script src="js/gsap-animations.js" defer></script>
