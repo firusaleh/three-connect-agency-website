@@ -1,0 +1,485 @@
+/* Ultra Modern Services Section 2025 */
+.services-2025 {
+    position: relative;
+    padding: 150px 0;
+    background: #0a0a0a;
+    overflow: hidden;
+}
+
+/* Animated Background Gradient */
+.services-2025::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 20% 50%, rgba(0, 169, 206, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(0, 115, 230, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%);
+    animation: gradientShift 20s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    33% { transform: rotate(120deg) scale(1.1); }
+    66% { transform: rotate(240deg) scale(0.9); }
+}
+
+/* Section Header - Refined Typography */
+.section-header {
+    text-align: center;
+    margin-bottom: 100px;
+    position: relative;
+    z-index: 1;
+}
+
+.section-badge {
+    display: inline-block;
+    padding: 8px 24px;
+    background: rgba(0, 169, 206, 0.1);
+    border: 1px solid rgba(0, 169, 206, 0.3);
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #00A9CE;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #00A9CE, #0073E6, #667eea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Services Grid - Bento Box Layout */
+.services-showcase {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 320px;
+    gap: 30px;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Service Cards - Glass Morphism with Neon */
+.service-block {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Grid Positioning for Bento Layout */
+.service-block:nth-child(1) {
+    grid-column: span 7;
+    grid-row: span 1;
+}
+
+.service-block:nth-child(2) {
+    grid-column: span 5;
+    grid-row: span 1;
+}
+
+.service-block:nth-child(3) {
+    grid-column: span 5;
+    grid-row: span 1;
+}
+
+.service-block:nth-child(4) {
+    grid-column: span 7;
+    grid-row: span 1;
+}
+
+/* Hover Effects with Glow */
+.service-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), 
+                rgba(0, 169, 206, 0.2) 0%, 
+                transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.service-block:hover::before {
+    opacity: 1;
+}
+
+.service-block:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 169, 206, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 60px rgba(0, 169, 206, 0.1);
+}
+
+/* Service Icon - Floating Animation */
+.service-icon-wrapper {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.service-icon-3d {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 169, 206, 0.2), rgba(0, 115, 230, 0.2));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: float 6s ease-in-out infinite;
+}
+
+.service-icon-3d i {
+    font-size: 2rem;
+    background: linear-gradient(135deg, #00A9CE, #0073E6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(5deg); }
+    75% { transform: translateY(5px) rotate(-5deg); }
+}
+
+/* Service Content - Clean Typography */
+.service-content h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.service-description {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 30px;
+    flex-grow: 1;
+}
+
+/* Features List - Minimal Pills */
+.service-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.service-features li {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(0, 169, 206, 0.1);
+    border: 1px solid rgba(0, 169, 206, 0.2);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+.service-features li:hover {
+    background: rgba(0, 169, 206, 0.2);
+    border-color: rgba(0, 169, 206, 0.4);
+    transform: translateY(-2px);
+}
+
+.service-features i {
+    color: #00A9CE;
+    font-size: 0.75rem;
+}
+
+/* Service Link - Modern Arrow */
+.service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #00A9CE;
+    font-weight: 500;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
+.service-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #00A9CE;
+    transition: width 0.3s ease;
+}
+
+.service-link:hover::after {
+    width: 100%;
+}
+
+.service-link i {
+    transition: transform 0.3s ease;
+}
+
+.service-link:hover i {
+    transform: translateX(5px);
+}
+
+/* Interactive Number Badges */
+.service-number {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgba(0, 169, 206, 0.3);
+    border: 2px solid rgba(0, 169, 206, 0.2);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.service-block:hover .service-number {
+    color: #00A9CE;
+    border-color: #00A9CE;
+    transform: rotate(360deg);
+}
+
+/* CTA Section - Futuristic Design */
+.services-cta-section {
+    text-align: center;
+    margin-top: 100px;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 80px 60px;
+    background: linear-gradient(135deg, rgba(0, 169, 206, 0.05), rgba(0, 115, 230, 0.05));
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-content::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #00A9CE, #0073E6, #667eea, #00A9CE);
+    border-radius: 30px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.cta-content:hover::before {
+    opacity: 0.5;
+    animation: borderRotate 3s linear infinite;
+}
+
+@keyframes borderRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.cta-content h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 40px;
+    background: linear-gradient(135deg, #00A9CE, #0073E6);
+    color: white;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.cta-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(0, 169, 206, 0.3);
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+    .services-showcase {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+    }
+    
+    .service-block {
+        grid-column: span 1 !important;
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-2025 {
+        padding: 80px 0;
+    }
+    
+    .section-header {
+        margin-bottom: 60px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .service-block {
+        padding: 30px;
+    }
+    
+    .service-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .service-number {
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .cta-content {
+        padding: 50px 30px;
+    }
+    
+    .cta-content h3 {
+        font-size: 2rem;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .service-icon-3d,
+    .service-block::before,
+    .cta-content::before {
+        animation: none;
+    }
+    
+    .service-block:hover {
+        transform: none;
+    }
+}
+
+/* Dark Theme Optimizations */
+@media (prefers-color-scheme: light) {
+    .services-2025 {
+        background: #f8f9fa;
+    }
+    
+    .section-title {
+        color: #1a1a1a;
+    }
+    
+    .section-subtitle {
+        color: #666;
+    }
+    
+    .service-block {
+        background: rgba(255, 255, 255, 0.9);
+        border-color: rgba(0, 0, 0, 0.1);
+    }
+    
+    .service-content h3 {
+        color: #1a1a1a;
+    }
+    
+    .service-description {
+        color: #666;
+    }
+    
+    .service-features li {
+        color: #444;
+    }
+}
