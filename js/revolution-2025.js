@@ -521,7 +521,7 @@ function initAIChat() {
         'hallo': 'Hallo! Schön Sie zu treffen. Wie kann Three Connect Ihnen helfen?',
         'leistungen': 'Wir bieten SDR Coldcalling, Lead-Generierung, Website-Erstellung und CRM-Einrichtung an.',
         'preis': 'Unsere Preise sind maßgeschneidert. Lassen Sie uns in einem kostenlosen Beratungsgespräch über Ihre Bedürfnisse sprechen!',
-        'kontakt': 'Sie erreichen uns unter kontakt@three-connect.de oder über das Kontaktformular auf der Website.'
+        'kontakt': 'Sie erreichen uns unter info@three-connect.de oder über das Kontaktformular auf der Website.'
     };
     
     chatWidget.querySelector('.chat-input').addEventListener('submit', (e) => {

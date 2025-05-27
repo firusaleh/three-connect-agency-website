@@ -32,9 +32,9 @@
       },
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+49-123-456789",
+        "telephone": "01734689676",
         "contactType": "customer service",
-        "email": "kontakt@three-connect.de",
+        "email": "info@three-connect.de",
         "availableLanguage": ["German", "English"]
       },
       "sameAs": [
@@ -4239,7 +4239,7 @@
                     <div class="footer-contact">
                         <h3>Kontakt</h3>
                         <p><i class="fas fa-phone"></i> <a href="tel:+4912345678">+49 123 456789</a></p>
-                        <p><i class="fas fa-envelope"></i> <a href="mailto:kontakt@three-connect.de">kontakt@three-connect.de</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:info@three-connect.de">info@three-connect.de</a></p>
                     </div>
                 </div>
             </div>
