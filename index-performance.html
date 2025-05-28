@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Three Connect - Gegründet 2025, revolutionieren wir B2B-Vertrieb mit 10 Jahren Branchenerfahrung. Wir bringen bewährte Expertise in ein innovatives, junges Unternehmen ein.">
+    
+    <title>Three Connect | 2025 gegründet - 10 Jahre Expertise | B2B Vertriebsoptimierung</title>
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Critical CSS inline -->
+    <style>
+        :root{--primary:#667eea;--secondary:#764ba2;--neu-bg:#e0e5ec;--text-primary:#2d3748}*{margin:0;padding:0;box-sizing:border-box}html{font-size:62.5%;scroll-behavior:smooth}body{font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;font-size:1.6rem;line-height:1.6;color:var(--text-primary);background:var(--neu-bg);overflow-x:hidden}.preloader{position:fixed;inset:0;background:var(--neu-bg);z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity .5s ease}.preloader.fade-out{opacity:0;pointer-events:none}.nav-2025{position:fixed;top:0;left:0;right:0;height:70px;background:rgba(224,229,236,.95);backdrop-filter:blur(10px);z-index:1000}.nav-container{max-width:1400px;margin:0 auto;padding:0 20px;height:100%;display:flex;align-items:center;justify-content:space-between}.hero-2025{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;background:var(--neu-bg)}.hero-container{max-width:1400px;margin:0 auto;padding:0 20px;position:relative;z-index:10}.hero-title{font-size:clamp(3.5rem,8vw,7rem);font-weight:800;line-height:1.1;color:var(--text-primary);margin-bottom:2rem}.btn-2025{display:inline-flex;align-items:center;gap:1rem;padding:1.5rem 3rem;font-size:1.6rem;font-weight:600;text-decoration:none;border-radius:50px;transition:transform .2s ease,box-shadow .2s ease;cursor:pointer;border:none}.hero-cta-primary{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;box-shadow:0 10px 30px rgba(102,126,234,.3)}@media (max-width:768px){html{font-size:55%}.hero-container{text-align:center}.hero-cta-group{display:flex;flex-direction:column;width:100%;gap:1rem}.btn-2025{width:100%;justify-content:center}.nav-menu{display:none}.mobile-menu-toggle{display:block}}
+    </style>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" as="image" href="images/hero-poster.jpg">
+    <link rel="preload" as="font" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" crossorigin>
+    
+    <!-- Non-critical CSS -->
+    <link rel="preload" href="css/main.min.css" as="style">
+    <link rel="stylesheet" href="css/main.min.css" media="print" onload="this.media='all';this.onload=null;">
+    <noscript><link rel="stylesheet" href="css/main.min.css"></noscript>
+    
+    <!-- Font loading with swap -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" media="print" onload="this.media='all'">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    
+    <!-- PWA Support -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#667eea">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-2025" role="navigation" aria-label="Hauptnavigation">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home" aria-label="Three Connect Startseite">
+                    <img src="images/logo.jpg" alt="Three Connect Logo" class="logo-img" width="50" height="50" loading="eager">
+                    <span class="logo-text">Three Connect</span>
+                </a>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link">Start</a></li>
+                    <li><a href="#services" class="nav-link">Leistungen</a></li>
+                    <li><a href="#about" class="nav-link">Über Uns</a></li>
+                    <li><a href="#process" class="nav-link">Prozess</a></li>
+                    <li><a href="#projects" class="nav-link">Projekte</a></li>
+                    <li><a href="#contact" class="nav-link">Kontakt</a></li>
+                </ul>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main">
+        <!-- Hero Section -->
+        <section id="home" class="hero-2025">
+            <!-- Video Background - Lazy Loaded -->
+            <div class="video-container">
+                <video class="hero-video" 
+                       poster="images/hero-poster.jpg"
+                       preload="none"
+                       data-autoplay
+                       muted loop playsinline>
+                    <source data-src="videos/start1.mp4" type="video/mp4">
+                </video>
+            </div>
+            
+            <!-- Hero Content -->
+            <div class="hero-container">
+                <div class="hero-text-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-rocket"></i>
+                        <span>2025 gegründet • 10 Jahre Branchenerfahrung</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        Steigern Sie Ihre<br>
+                        <span class="gradient-text">Umsätze</span>
+                    </h1>
+                    
+                    <p class="hero-subtitle">
+                        Nach einem Jahrzehnt erfolgreicher Projektarbeit haben wir 2025 Three Connect ins Leben gerufen.
+                    </p>
+                    
+                    <p class="hero-description">
+                        Wir optimieren Ihre Vertriebsprozesse, erstellen moderne Webseiten und generieren qualifizierte Leads 
+                        für nachhaltiges Wachstum. <strong>Unsere bewährte Expertise aus 10 Jahren</strong> 
+                        fließt in jedes Projekt ein.
+                    </p>
+                    
+                    <div class="hero-cta-group">
+                        <a href="#contact" class="btn-2025 hero-cta-primary">
+                            <span>Kostenloses Beratungsgespräch</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#services" class="btn-2025 hero-cta-ghost">
+                            <span>Unsere Leistungen</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services-2025 section">
+            <div class="container-2025">
+                <div class="section-header">
+                    <span class="section-badge">Unsere Leistungen</span>
+                    <h2 class="section-title">
+                        Maßgeschneiderte B2B-Lösungen<br>
+                        <span class="gradient-text">Mit bewährter Expertise</span>
+                    </h2>
+                    <p class="section-subtitle">
+                        Wir bieten maßgeschneiderte Lösungen, um Ihren B2B-Vertrieb zu optimieren und messbare Ergebnisse zu erzielen.
+                    </p>
+                </div>
+                
+                <div class="services-showcase">
+                    <!-- Service cards will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-2025 section">
+            <div class="container-2025">
+                <div class="section-header">
+                    <span class="section-badge">Über Uns</span>
+                    <h2 class="section-title">Frisch gegründet, bewährt erfolgreich</h2>
+                </div>
+                <!-- Content loaded dynamically -->
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="process-section section">
+            <div class="container-2025">
+                <h2 class="section-title">Unser Prozess</h2>
+                <p class="section-subtitle">
+                    Bei Three Connect setzen wir auf einen strukturierten und transparenten Prozess.
+                </p>
+                <!-- Process cards loaded dynamically -->
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-2025 section">
+            <div class="container-2025">
+                <h2 class="section-title">Unsere Projekte</h2>
+                <!-- Projects loaded dynamically -->
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-2025 section">
+            <div class="container-2025">
+                <h2 class="section-title">Kontakt</h2>
+                <!-- Contact form loaded dynamically -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-2025">
+            <p>&copy; 2025 Three Connect. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <!-- Performance-optimized Scripts -->
+    <script src="js/performance-main.js" defer></script>
+    <script src="js/performance-video-loader.js" defer></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator && window.location.hostname !== 'localhost') {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js');
+            });
+        }
+    </script>
+    
+    <!-- Inline critical JS -->
+    <script>
+        // Remove preloader
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.classList.add('fade-out');
+                setTimeout(() => preloader.remove(), 500);
+            }
+        });
+        
+        // Basic mobile menu
+        const toggle = document.getElementById('mobileMenuToggle');
+        const menu = document.getElementById('navMenu');
+        if (toggle && menu) {
+            toggle.addEventListener('click', () => {
+                menu.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>

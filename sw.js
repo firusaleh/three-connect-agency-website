@@ -1,16 +1,17 @@
 // Service Worker for Three Connect PWA
-const CACHE_NAME = 'three-connect-v1';
+const CACHE_NAME = 'three-connect-v2';
 const urlsToCache = [
   '/',
-  '/css/revolution-2025.css',
-  '/css/modern-2025-design.css',
-  '/css/additional-styles.css',
-  '/js/revolution-2025.js',
-  '/js/main-2025.js',
-  '/videos/start1.mp4',
+  '/css/performance-optimized.css',
+  '/js/performance-main.js',
+  '/js/performance-video-loader.js',
   '/images/logo.jpg',
   '/offline.html'
 ];
+
+// Dynamic cache for runtime caching
+const DYNAMIC_CACHE = 'three-connect-dynamic-v1';
+const MAX_CACHE_SIZE = 50;
 
 // Install Service Worker
 self.addEventListener('install', event => {
@@ -33,24 +34,45 @@ self.addEventListener('fetch', event => {
           return response;
         }
 
-        return fetch(event.request).then(
-          response => {
-            // Check if we received a valid response
-            if(!response || response.status !== 200 || response.type !== 'basic') {
-              return response;
-            }
+        // Clone the request
+        const fetchRequest = event.request.clone();
 
-            // Clone the response
-            const responseToCache = response.clone();
-
-            caches.open(CACHE_NAME)
-              .then(cache => {
-                cache.put(event.request, responseToCache);
-              });
-
+        return fetch(fetchRequest).then(response => {
+          // Check if valid response
+          if (!response || response.status !== 200 || response.type !== 'basic') {
             return response;
           }
-        );
+
+          // Don't cache videos, large files, or non-GET requests
+          if (event.request.method !== 'GET') {
+            return response;
+          }
+
+          const contentType = response.headers.get('content-type');
+          if (contentType && (contentType.includes('video') || contentType.includes('audio'))) {
+            return response;
+          }
+
+          // Clone the response
+          const responseToCache = response.clone();
+
+          // Add to dynamic cache
+          caches.open(DYNAMIC_CACHE)
+            .then(cache => {
+              cache.put(event.request, responseToCache);
+              // Limit cache size
+              limitCacheSize(DYNAMIC_CACHE, MAX_CACHE_SIZE);
+            });
+
+          return response;
+        }).catch(() => {
+          // Offline fallback for navigation requests
+          if (event.request.mode === 'navigate') {
+            return caches.match('/offline.html');
+          }
+          // Return cached version if available
+          return caches.match(event.request);
+        });
       })
       .catch(() => {
         // Return offline page
@@ -61,7 +83,7 @@ self.addEventListener('fetch', event => {
 
 // Update Service Worker
 self.addEventListener('activate', event => {
-  const cacheWhitelist = [CACHE_NAME];
+  const cacheWhitelist = [CACHE_NAME, DYNAMIC_CACHE];
   
   event.waitUntil(
     caches.keys().then(cacheNames => {
@@ -75,6 +97,17 @@ self.addEventListener('activate', event => {
     })
   );
 });
+
+// Limit cache size
+function limitCacheSize(name, size) {
+  caches.open(name).then(cache => {
+    cache.keys().then(keys => {
+      if (keys.length > size) {
+        cache.delete(keys[0]).then(limitCacheSize(name, size));
+      }
+    });
+  });
+}
 
 // Background Sync for form submissions
 self.addEventListener('sync', event => {
