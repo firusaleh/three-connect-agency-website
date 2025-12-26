@@ -1,0 +1,316 @@
+/* Layout Fixes for Proper Display */
+
+/* Hero Section Layout Fix */
+.hero-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 100vh;
+    padding: 8rem 4rem 4rem;
+    text-align: center;
+}
+
+.hero-text-wrapper {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Remove grid layout that was breaking things */
+.hero-content {
+    grid-template-columns: none !important;
+}
+
+/* Fix floating stats positioning */
+.floating-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    min-width: 150px;
+    padding: 1.5rem;
+}
+
+/* Services Grid Proper Layout */
+.services-grid-3d {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+    gap: 2rem !important;
+    padding: 2rem 0;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.service-card-3d {
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Container Fixes */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+}
+
+/* Section Spacing */
+section {
+    padding: 6rem 0;
+    position: relative;
+}
+
+/* Navigation Fix */
+.nav-floating {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1.5rem 2rem;
+}
+
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* About Section Layout */
+.about-content {
+    padding: 2rem 0;
+}
+
+.timeline-3d {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 0;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+/* Process Section */
+.process-3d-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    padding: 3rem 0;
+}
+
+.process-orbit {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+}
+
+/* Projects Layout */
+.projects-showcase-3d {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.project-card-3d {
+    min-height: 500px;
+}
+
+/* Contact Form Layout */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.contact-form-3d {
+    padding: 3rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Video Background Fixes */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+/* Gradient Transitions Fix */
+.gradient-transition {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    margin: -75px 0;
+    z-index: 10;
+}
+
+/* Text Visibility */
+.section-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 2rem;
+    color: white;
+}
+
+.section-tag {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: rgba(99, 102, 241, 0.2);
+    border-radius: 25px;
+    margin-bottom: 1rem;
+    color: #a5b4fc;
+}
+
+/* Button Fixes */
+.btn-primary-3d,
+.btn-secondary-glass {
+    padding: 1.2rem 2.5rem;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Footer Fix */
+.footer-modern {
+    margin-top: 0;
+    padding: 4rem 0 2rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Mobile Responsive Fixes */
+@media (max-width: 1024px) {
+    .services-grid-3d {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    }
+    
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .projects-showcase-3d {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 6rem 2rem 2rem;
+    }
+    
+    .floating-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .stat-card {
+        width: 200px;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .nav-cta {
+        display: none;
+    }
+    
+    section {
+        padding: 4rem 0;
+    }
+}
+
+/* Z-Index Management */
+.nav-floating {
+    z-index: 1000;
+}
+
+.page-preview-container {
+    z-index: 9999;
+}
+
+.gradient-transition {
+    z-index: 10;
+}
+
+.video-background {
+    z-index: -1;
+}
+
+/* Ensure content is visible */
+.container,
+.hero-content,
+.section-header,
+.card-content {
+    position: relative;
+    z-index: 2;
+}

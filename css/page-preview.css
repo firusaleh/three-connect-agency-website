@@ -1,0 +1,429 @@
+/* Page Preview Effect Styles */
+
+.page-preview-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-preview-container.active {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.preview-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.preview-content {
+    width: 90%;
+    max-width: 1000px;
+    height: 80%;
+    max-height: 600px;
+    background: linear-gradient(135deg,
+        rgba(30, 41, 59, 0.9) 0%,
+        rgba(15, 23, 42, 0.9) 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.5),
+        0 0 100px rgba(99, 102, 241, 0.1),
+        inset 0 0 50px rgba(99, 102, 241, 0.05);
+    overflow: hidden;
+    overflow-y: auto;
+    transform: scale(0.8) translateY(100px);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.page-preview-container.active .preview-content {
+    transform: scale(1) translateY(0);
+}
+
+/* Custom Scrollbar for Preview */
+.preview-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.preview-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.preview-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 4px;
+}
+
+/* Preview Sections */
+.preview-section {
+    position: relative;
+    width: 100%;
+    min-height: 150px;
+    margin-bottom: 2px;
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.preview-section:hover {
+    background: rgba(99, 102, 241, 0.1);
+    transform: translateX(5px);
+}
+
+.preview-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, #667eea, #764ba2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.preview-section:hover::before {
+    opacity: 1;
+}
+
+/* Preview Video Backgrounds */
+.preview-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+        rgba(99, 102, 241, 0.05) 0%,
+        rgba(168, 85, 247, 0.05) 100%);
+    opacity: 0.3;
+}
+
+/* Preview Hero Section */
+.preview-hero {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview-text {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* Preview Services Cards */
+.preview-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.preview-cards span {
+    display: block;
+    height: 60px;
+    background: linear-gradient(135deg,
+        rgba(99, 102, 241, 0.1) 0%,
+        rgba(168, 85, 247, 0.1) 100%);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: card-pulse 2s ease-in-out infinite;
+    animation-delay: calc(var(--index) * 0.1s);
+}
+
+.preview-cards span:nth-child(1) { --index: 1; }
+.preview-cards span:nth-child(2) { --index: 2; }
+.preview-cards span:nth-child(3) { --index: 3; }
+.preview-cards span:nth-child(4) { --index: 4; }
+.preview-cards span:nth-child(5) { --index: 5; }
+.preview-cards span:nth-child(6) { --index: 6; }
+
+@keyframes card-pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+}
+
+/* Preview Timeline */
+.preview-timeline {
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        #667eea 20%,
+        #764ba2 50%,
+        #667eea 80%,
+        transparent 100%);
+    margin: 30px auto;
+    position: relative;
+}
+
+.preview-timeline::before,
+.preview-timeline::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #667eea;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.preview-timeline::before {
+    left: 20%;
+}
+
+.preview-timeline::after {
+    right: 20%;
+}
+
+/* Preview Process Steps */
+.preview-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.preview-steps span {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+        rgba(99, 102, 241, 0.2) 0%,
+        transparent 70%);
+    border: 2px solid rgba(99, 102, 241, 0.3);
+    margin: 0 auto;
+    animation: rotate-slow 10s linear infinite;
+}
+
+@keyframes rotate-slow {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Preview Project Cards */
+.preview-project-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.preview-project-cards span {
+    height: 80px;
+    background: linear-gradient(135deg,
+        rgba(236, 72, 153, 0.1) 0%,
+        rgba(99, 102, 241, 0.1) 100%);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.preview-project-cards span::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 70%);
+    animation: shine 3s ease-in-out infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) translateY(-100%);
+    }
+    100% {
+        transform: translateX(100%) translateY(100%);
+    }
+}
+
+/* Preview Contact Form */
+.preview-form {
+    width: 80%;
+    height: 100px;
+    margin: 20px auto;
+    background: linear-gradient(135deg,
+        rgba(99, 102, 241, 0.05) 0%,
+        rgba(168, 85, 247, 0.05) 100%);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.preview-form::after {
+    content: 'CONTACT FORM';
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.2);
+    letter-spacing: 2px;
+}
+
+/* Close Button */
+.preview-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.preview-close:hover {
+    background: rgba(239, 68, 68, 0.5);
+    transform: scale(1.1) rotate(90deg);
+}
+
+.preview-close i {
+    color: white;
+    font-size: 1.8rem;
+}
+
+/* Navigation Dots */
+.preview-nav {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.preview-nav-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.preview-nav-dot.active,
+.preview-nav-dot:hover {
+    background: #667eea;
+    transform: scale(1.5);
+}
+
+/* Fade In Animation for Sections */
+.page-preview-container.active .preview-section {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.page-preview-container.active .preview-section:nth-child(1) { animation-delay: 0.1s; }
+.page-preview-container.active .preview-section:nth-child(2) { animation-delay: 0.2s; }
+.page-preview-container.active .preview-section:nth-child(3) { animation-delay: 0.3s; }
+.page-preview-container.active .preview-section:nth-child(4) { animation-delay: 0.4s; }
+.page-preview-container.active .preview-section:nth-child(5) { animation-delay: 0.5s; }
+.page-preview-container.active .preview-section:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .preview-content {
+        width: 95%;
+        height: 90%;
+        max-height: none;
+    }
+    
+    .preview-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .preview-steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .preview-close {
+        top: 10px;
+        right: 10px;
+    }
+}
+
+/* Scroll Hint */
+.preview-scroll-hint {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.2rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}

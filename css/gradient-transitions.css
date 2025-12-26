@@ -1,0 +1,147 @@
+/* Gradient Transitions Between Video Sections */
+
+.gradient-transition {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    z-index: 100;
+    pointer-events: none;
+    margin: -100px 0;
+}
+
+/* Gradient 1: Hero to Services */
+.gradient-1 {
+    background: linear-gradient(180deg, 
+        rgba(15, 23, 42, 0) 0%,
+        rgba(15, 23, 42, 0.3) 20%,
+        rgba(99, 102, 241, 0.1) 50%,
+        rgba(15, 23, 42, 0.3) 80%,
+        rgba(15, 23, 42, 0) 100%
+    );
+    filter: blur(40px);
+}
+
+/* Gradient 2: Services to About */
+.gradient-2 {
+    background: linear-gradient(180deg,
+        rgba(15, 23, 42, 0) 0%,
+        rgba(168, 85, 247, 0.15) 25%,
+        rgba(236, 72, 153, 0.1) 50%,
+        rgba(168, 85, 247, 0.15) 75%,
+        rgba(15, 23, 42, 0) 100%
+    );
+    filter: blur(40px);
+}
+
+/* Gradient 3: About to Process */
+.gradient-3 {
+    background: linear-gradient(180deg,
+        rgba(15, 23, 42, 0) 0%,
+        rgba(236, 72, 153, 0.15) 25%,
+        rgba(250, 112, 154, 0.1) 50%,
+        rgba(236, 72, 153, 0.15) 75%,
+        rgba(15, 23, 42, 0) 100%
+    );
+    filter: blur(40px);
+}
+
+/* Gradient 4: Process to Projects */
+.gradient-4 {
+    background: linear-gradient(180deg,
+        rgba(15, 23, 42, 0) 0%,
+        rgba(79, 70, 229, 0.15) 25%,
+        rgba(99, 102, 241, 0.1) 50%,
+        rgba(79, 70, 229, 0.15) 75%,
+        rgba(15, 23, 42, 0) 100%
+    );
+    filter: blur(40px);
+}
+
+/* Gradient 5: Projects to Contact */
+.gradient-5 {
+    background: linear-gradient(180deg,
+        rgba(15, 23, 42, 0) 0%,
+        rgba(118, 75, 162, 0.15) 25%,
+        rgba(102, 126, 234, 0.1) 50%,
+        rgba(118, 75, 162, 0.15) 75%,
+        rgba(15, 23, 42, 0) 100%
+    );
+    filter: blur(40px);
+}
+
+/* Animated Gradient Transitions on Scroll */
+.gradient-transition::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center,
+        rgba(99, 102, 241, 0.2) 0%,
+        transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.gradient-transition.visible::before {
+    opacity: 1;
+}
+
+/* Smooth Fade Effect */
+.gradient-transition::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(99, 102, 241, 0.5) 25%,
+        rgba(168, 85, 247, 0.5) 50%,
+        rgba(236, 72, 153, 0.5) 75%,
+        transparent 100%
+    );
+    transform: translateY(-50%);
+    opacity: 0.3;
+    animation: gradient-scan 3s ease-in-out infinite;
+}
+
+@keyframes gradient-scan {
+    0%, 100% {
+        transform: translateY(-50%) translateX(-100%);
+    }
+    50% {
+        transform: translateY(-50%) translateX(100%);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .gradient-transition {
+        height: 150px;
+        margin: -75px 0;
+    }
+}
+
+/* Parallax Effect on Scroll */
+.gradient-transition.parallax {
+    transform: translateY(0);
+    transition: transform 0.5s ease-out;
+}
+
+/* Color Pulse Animation */
+.gradient-transition.pulse {
+    animation: color-pulse 4s ease-in-out infinite;
+}
+
+@keyframes color-pulse {
+    0%, 100% {
+        filter: blur(40px) brightness(1);
+    }
+    50% {
+        filter: blur(50px) brightness(1.2);
+    }
+}

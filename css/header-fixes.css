@@ -1,0 +1,273 @@
+/* Header and Navigation Fixes */
+
+/* Logo Text Visibility Fix */
+.logo-text {
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-size: 2.2rem !important;
+    font-weight: 700 !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    display: inline-block !important;
+    letter-spacing: 1px;
+}
+
+.nav-logo a {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.logo-3d-container {
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem 0;
+}
+
+/* Navigation Items German Text */
+.nav-links a[href="#home"] span::after {
+    content: "Start";
+    position: absolute;
+    left: 0;
+    opacity: 0;
+}
+
+.nav-links a[href="#services"] span {
+    font-size: 0;
+}
+.nav-links a[href="#services"] span::after {
+    content: "Leistungen";
+    font-size: 1.5rem;
+}
+
+.nav-links a[href="#about"] span {
+    font-size: 0;
+}
+.nav-links a[href="#about"] span::after {
+    content: "Über Uns";
+    font-size: 1.5rem;
+}
+
+.nav-links a[href="#process"] span {
+    font-size: 0;
+}
+.nav-links a[href="#process"] span::after {
+    content: "Prozess";
+    font-size: 1.5rem;
+}
+
+.nav-links a[href="#projects"] span {
+    font-size: 0;
+}
+.nav-links a[href="#projects"] span::after {
+    content: "Projekte";
+    font-size: 1.5rem;
+}
+
+.nav-links a[href="#contact"] span {
+    font-size: 0;
+}
+.nav-links a[href="#contact"] span::after {
+    content: "Kontakt";
+    font-size: 1.5rem;
+}
+
+/* Hero Title Visibility Fix */
+.hero-title {
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-size: clamp(3.5rem, 7vw, 6rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    color: white !important;
+    margin-bottom: 2rem !important;
+    text-align: center;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.hero-title .title-line {
+    display: block !important;
+    margin: 0.5rem 0 !important;
+}
+
+.hero-title .title-word {
+    display: inline-block !important;
+    color: white !important;
+    margin: 0 0.3rem !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+}
+
+.hero-title .gradient-text {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    display: inline-block !important;
+}
+
+/* Fix für alle Spans in Überschriften - keine Pseudo-Content */
+.hero-title span::before,
+.hero-title span::after,
+.section-title span::before, 
+.section-title span::after,
+.title-3d::before,
+.title-3d::after,
+.title-gradient::before,
+.title-gradient::after,
+.title-word::before,
+.title-word::after,
+.title-line::before,
+.title-line::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* Hero Badge Text Fix */
+.hero-badge {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 2rem;
+}
+
+.badge-text {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 1.4rem !important;
+    font-weight: 500;
+}
+
+/* Hero Description Visibility */
+.hero-description {
+    font-size: 1.8rem !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    line-height: 1.6 !important;
+    max-width: 800px;
+    margin: 0 auto 3rem !important;
+    text-align: center;
+}
+
+/* Buttons Text Fix */
+.btn-primary-3d span,
+.btn-secondary-glass span {
+    color: white !important;
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+}
+
+.btn-secondary-glass {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Navigation Visibility */
+.nav-floating {
+    background: rgba(15, 23, 42, 0.9) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+}
+
+.nav-item span {
+    color: white !important;
+    font-size: 1.5rem !important;
+}
+
+.nav-item:hover span {
+    color: #667eea !important;
+}
+
+/* CTA Button */
+.cta-3d {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+.cta-text {
+    color: white !important;
+    font-weight: 600 !important;
+    font-size: 1.5rem !important;
+}
+
+/* Stats Cards Text */
+.stat-number {
+    font-size: 3rem !important;
+    font-weight: 700 !important;
+    color: white !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat-label {
+    font-size: 1.4rem !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Section Headers Fix */
+.section-tag {
+    color: #a5b4fc !important;
+    font-size: 1.4rem !important;
+    font-weight: 600 !important;
+}
+
+.section-title {
+    color: white !important;
+}
+
+.title-3d {
+    color: white !important;
+    font-size: clamp(2.5rem, 5vw, 4rem) !important;
+}
+
+.title-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* Service Cards Text */
+.service-card-3d h3 {
+    color: white !important;
+    font-size: 2.2rem !important;
+    font-weight: 600 !important;
+}
+
+.service-card-3d p {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 1.5rem !important;
+    line-height: 1.6 !important;
+}
+
+.price-value {
+    color: white !important;
+    font-size: 2.8rem !important;
+}
+
+.price-label {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-size: 1.4rem !important;
+}
+
+/* Mobile Fixes */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: clamp(2.5rem, 6vw, 4rem) !important;
+    }
+    
+    .hero-description {
+        font-size: 1.6rem !important;
+    }
+    
+    .logo-text {
+        font-size: 1.8rem !important;
+    }
+}

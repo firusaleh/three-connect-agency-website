@@ -1,0 +1,201 @@
+/* Professional Services Styling - Weniger verspielt, mehr professionell */
+
+/* Service Price Styling */
+.service-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin: 2rem 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.service-price .price-label {
+    font-size: 1.4rem;
+    color: var(--text-muted, #666);
+    font-weight: 400;
+}
+
+.service-price .price-amount {
+    font-size: 2.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.service-price .price-period {
+    font-size: 1.6rem;
+    color: var(--text-muted, #666);
+    font-weight: 400;
+}
+
+/* Reduzierte Animationen für professionelleren Look */
+.service-block {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-block:hover {
+    transform: translateY(-5px);
+}
+
+/* Entfernung der 3D-Rotation für Icons */
+.service-icon-3d {
+    animation: none !important;
+    transform: none !important;
+}
+
+.service-icon-3d i {
+    font-size: 3rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Professionellere Buttons */
+.service-cta a {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.2rem 2.4rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.service-cta a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+/* Anpassung der Service-Blöcke für bessere Lesbarkeit */
+.service-block {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.service-content h3 {
+    font-size: 2.4rem;
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.service-description {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: #4a5568;
+    margin-bottom: 2rem;
+}
+
+.service-features {
+    margin-bottom: 2rem;
+}
+
+.service-features li {
+    font-size: 1.5rem;
+    color: #4a5568;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.service-features li i {
+    color: #48bb78;
+    font-size: 1.2rem;
+}
+
+/* Entfernung überflüssiger Animationen */
+@keyframes none {
+    to { transform: none; }
+}
+
+.gradient-orbs,
+.aurora-overlay,
+.noise-texture {
+    animation: none !important;
+    opacity: 0.05;
+}
+
+/* Reduzierung der Hero-Animationen */
+.hero-badge,
+.hero-title,
+.hero-subtitle {
+    animation: none !important;
+}
+
+/* Professionellere Scroll-Indikatoren */
+.scroll-indicator {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Weniger verspielte Hover-Effekte */
+.magnetic-link,
+.magnetic-button {
+    transition: transform 0.2s ease;
+}
+
+.magnetic-link:hover,
+.magnetic-button:hover {
+    transform: translateX(5px);
+}
+
+/* Reduzierung der Glitch-Effekte */
+.gradient-glitch {
+    animation: none !important;
+}
+
+/* Professionellere Trust Pills */
+.hero-trust-pills {
+    gap: 2rem;
+}
+
+.trust-pill {
+    background: white;
+    border: 1px solid #e2e8f0;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.trust-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Counter ohne Animation */
+.counter {
+    transition: none !important;
+}
+
+/* Mobile Optimierungen */
+@media (max-width: 768px) {
+    .service-price .price-amount {
+        font-size: 2.2rem;
+    }
+    
+    .service-block {
+        padding: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .service-content h3 {
+        font-size: 2rem;
+    }
+    
+    .service-description {
+        font-size: 1.4rem;
+    }
+}
