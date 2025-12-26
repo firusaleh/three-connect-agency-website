@@ -7,6 +7,35 @@
 ehthumbs.db
 Thumbs.db
 
+# Node.js (nur für lokale Entwicklung)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment Variables (WICHTIG: Niemals hochladen!)
+.env
+.env.local
+.env.production
+
+# PHP Configuration (WICHTIG: Ihre Email-Passwörter!)
+mail-config.php
+
+# Logs
+*.log
+logs/
+contact_log.txt
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Backend Server (nur für lokale Entwicklung)
+backend-server.js
+package.json
+package-lock.json
+README_BACKEND.md
+
 # Backup files
 *.bak
 *.backup

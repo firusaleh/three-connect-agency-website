@@ -531,6 +531,43 @@
             line-height: 1.1;
             margin-bottom: 30px;
         }
+        
+        #rotating-service {
+            display: inline-block;
+            min-width: 450px;
+            text-align: center;
+            position: relative;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeOutUp {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+        }
+        
+        .text-animating-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .text-animating-out {
+            animation: fadeOutUp 0.6s ease-out forwards;
+        }
 
         .gradient-text {
             background: linear-gradient(135deg, #00ffff, #00ff88, #ff00ff);
@@ -1379,6 +1416,11 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            #rotating-service {
+                min-width: 100%;
+                font-size: 36px;
+            }
+            
             .altitude-meter {
                 right: 10px;
                 padding: 15px;
@@ -1509,8 +1551,8 @@
             </div>
             
             <h1>
-                Steigern Sie Ihre<br>
-                <span class="gradient-text">B2B-Verkäufe</span>
+                <span id="dynamic-text">Steigern Sie Ihre</span><br>
+                <span class="gradient-text" id="rotating-service">B2B-Verkäufe</span>
             </h1>
             
             <p class="hero-description">
@@ -1906,22 +1948,22 @@
             
             <div class="contact-grid">
                 <div class="contact-form">
-                    <form>
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)">
                         <div class="form-grid">
                             <div class="form-group">
-                                <input type="text" placeholder="Ihr Name" required>
+                                <input type="text" name="name" placeholder="Ihr Name" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" placeholder="E-Mail" required>
+                                <input type="email" name="email" placeholder="E-Mail" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" placeholder="Unternehmen" required>
+                                <input type="text" name="company" placeholder="Unternehmen" required>
                             </div>
                             <div class="form-group">
-                                <input type="tel" placeholder="Telefon">
+                                <input type="tel" name="phone" placeholder="Telefon">
                             </div>
                             <div class="form-group">
-                                <select required style="width: 100%; padding: 15px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; color: #fff; font-size: 16px; cursor: pointer;">
+                                <select name="service" required style="width: 100%; padding: 15px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; color: #fff; font-size: 16px; cursor: pointer;">
                                     <option value="" disabled selected style="color: rgba(255, 255, 255, 0.5);">Gewünschte Leistung</option>
                                     <option value="website" style="background: #000; color: #fff;">Website-Erstellung</option>
                                     <option value="landing" style="background: #000; color: #fff;">Landing Pages</option>
@@ -1933,21 +1975,21 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <select required style="width: 100%; padding: 15px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; color: #fff; font-size: 16px; cursor: pointer;">
+                                <select name="budget" required style="width: 100%; padding: 15px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; color: #fff; font-size: 16px; cursor: pointer;">
                                     <option value="" disabled selected style="color: rgba(255, 255, 255, 0.5);">Budget</option>
                                     <option value="unter-1000" style="background: #000; color: #fff;">Unter 1.000 €</option>
                                     <option value="1000-5000" style="background: #000; color: #fff;">1.000 € - 5.000 €</option>
                                     <option value="5000-10000" style="background: #000; color: #fff;">5.000 € - 10.000 €</option>
                                     <option value="10000-25000" style="background: #000; color: #fff;">10.000 € - 25.000 €</option>
-                                    <option value="25000-50000" style="background: #000; color: #fff;">25.000 € - 50.000 €</option>
-                                    <option value="ueber-50000" style="background: #000; color: #fff;">Über 50.000 €</option>
+                                    <option value="ueber-25000" style="background: #000; color: #fff;">Über 25.000 €</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group full">
-                            <textarea placeholder="Ihre Nachricht" rows="5" required></textarea>
+                            <textarea name="message" placeholder="Ihre Nachricht" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="submit-btn">Nachricht senden →</button>
+                        <div id="formMessage" style="margin: 15px 0; padding: 15px; border-radius: 8px; display: none;"></div>
+                        <button type="submit" class="submit-btn" id="submitBtn">Nachricht senden →</button>
                     </form>
                 </div>
                 
@@ -2310,6 +2352,75 @@
         // Initialize achievements
         document.addEventListener('DOMContentLoaded', () => {
             achievements.init();
+            
+            // Service Text Rotation
+            const services = [
+                { 
+                    intro: "Steigern Sie Ihre", 
+                    service: "B2B-Verkäufe" 
+                },
+                { 
+                    intro: "Optimieren Sie Ihr", 
+                    service: "CRM-System" 
+                },
+                { 
+                    intro: "Erstellen Sie moderne", 
+                    service: "Webseiten" 
+                },
+                { 
+                    intro: "Generieren Sie qualifizierte", 
+                    service: "Leads" 
+                },
+                { 
+                    intro: "Automatisieren Sie Ihre", 
+                    service: "Vertriebsprozesse" 
+                },
+                { 
+                    intro: "Verbessern Sie Ihre", 
+                    service: "Online-Präsenz" 
+                },
+                { 
+                    intro: "Skalieren Sie Ihr", 
+                    service: "Business" 
+                }
+            ];
+            
+            let currentServiceIndex = 0;
+            const dynamicText = document.getElementById('dynamic-text');
+            const rotatingService = document.getElementById('rotating-service');
+            
+            function rotateServices() {
+                // Fade out current text
+                rotatingService.classList.add('text-animating-out');
+                dynamicText.classList.add('text-animating-out');
+                
+                setTimeout(() => {
+                    // Move to next service
+                    currentServiceIndex = (currentServiceIndex + 1) % services.length;
+                    
+                    // Update text
+                    dynamicText.textContent = services[currentServiceIndex].intro;
+                    rotatingService.textContent = services[currentServiceIndex].service;
+                    
+                    // Remove fade out class and add fade in
+                    rotatingService.classList.remove('text-animating-out');
+                    dynamicText.classList.remove('text-animating-out');
+                    rotatingService.classList.add('text-animating-in');
+                    dynamicText.classList.add('text-animating-in');
+                    
+                    // Remove fade in class after animation
+                    setTimeout(() => {
+                        rotatingService.classList.remove('text-animating-in');
+                        dynamicText.classList.remove('text-animating-in');
+                    }, 600);
+                }, 600);
+            }
+            
+            // Start rotation after 3 seconds, then every 4 seconds
+            setTimeout(() => {
+                rotateServices();
+                setInterval(rotateServices, 4000);
+            }, 3000);
         });
 
         // Altitude Meter Logic
@@ -2400,6 +2511,71 @@
         }
         
 
+        // Contact Form Handler
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const form = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const formMessage = document.getElementById('formMessage');
+            
+            // Get form data
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+            
+            // Show loading state
+            submitBtn.textContent = 'Wird gesendet...';
+            submitBtn.disabled = true;
+            
+            // Determine which backend to use
+            const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+            const backendUrl = isLocalhost ? 'http://localhost:3001/api/contact' : 'contact.php';
+            
+            try {
+                console.log('Sending data to:', backendUrl); // Debug log
+                const response = await fetch(backendUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                    mode: 'cors'
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    // Show success message
+                    formMessage.style.display = 'block';
+                    formMessage.style.background = 'rgba(0, 255, 136, 0.1)';
+                    formMessage.style.border = '1px solid rgba(0, 255, 136, 0.3)';
+                    formMessage.style.color = '#00ff88';
+                    formMessage.textContent = result.message || 'Nachricht erfolgreich gesendet!';
+                    
+                    // Reset form
+                    form.reset();
+                    
+                    // Hide message after 5 seconds
+                    setTimeout(() => {
+                        formMessage.style.display = 'none';
+                    }, 5000);
+                } else {
+                    throw new Error(result.message || 'Fehler beim Senden');
+                }
+            } catch (error) {
+                // Show error message
+                formMessage.style.display = 'block';
+                formMessage.style.background = 'rgba(255, 0, 136, 0.1)';
+                formMessage.style.border = '1px solid rgba(255, 0, 136, 0.3)';
+                formMessage.style.color = '#ff0088';
+                formMessage.textContent = error.message || 'Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.';
+            } finally {
+                // Reset button
+                submitBtn.textContent = 'Nachricht senden →';
+                submitBtn.disabled = false;
+            }
+        }
+        
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
