@@ -27,30 +27,10 @@
             background: #000;
             color: #fff;
             overflow-x: hidden;
-            cursor: none;
         }
 
         ::selection { background: rgba(0, 255, 136, 0.4); }
         a { color: inherit; text-decoration: none; }
-
-        /* ═══ CUSTOM CURSOR ═══ */
-        #cursor {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #00ff88;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 99999;
-            transform: translate(-50%, -50%);
-            transition: width 0.2s, height 0.2s, background 0.2s;
-            mix-blend-mode: difference;
-        }
-        #cursor.hover {
-            width: 50px;
-            height: 50px;
-            background: rgba(0, 255, 136, 0.15);
-        }
 
         /* ═══ SCROLL PROGRESS ═══ */
         #scrollBar {
@@ -221,7 +201,7 @@
             border: 1px solid rgba(255,255,255,0.2);
             border-radius: 8px;
             background: none;
-            cursor: none;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -398,7 +378,7 @@
             font-weight: 600;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            cursor: none;
+            cursor: pointer;
             transition: all 0.4s;
             font-family: inherit;
             position: relative;
@@ -638,7 +618,7 @@
             text-transform: uppercase;
             border: none;
             background: none;
-            cursor: none;
+            cursor: pointer;
             font-family: inherit;
             display: inline-flex;
             align-items: center;
@@ -725,64 +705,108 @@
         }
         .portal-card a:hover { gap: 12px; }
 
-        /* ═══ TESTIMONIALS – INDUSTRIAL ═══ */
-        .testimonials-section {
-            background: linear-gradient(135deg, #0a0808, #1a1210, #0a0808);
+        /* ═══ RESULTS – COMMAND CENTER ═══ */
+        .results-section {
+            background: linear-gradient(135deg, #050305, #120a10, #050305);
         }
-        .testimonials-section .scene-video {
-            filter: brightness(45%) contrast(120%) grayscale(40%);
+        .results-section .scene-video {
+            filter: brightness(35%) contrast(130%) grayscale(40%) hue-rotate(180deg);
             object-position: top center;
-            opacity: 0.45;
+            opacity: 0.35;
         }
 
-        .testi-track-wrapper { overflow: hidden; margin-top: 40px; }
-
-        .testi-track {
-            display: flex;
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             gap: 25px;
-            animation: scroll 35s linear infinite;
-            width: max-content;
-        }
-        .testi-track:hover { animation-play-state: paused; }
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-        .testi-card {
-            background: linear-gradient(145deg, rgba(62,42,26,0.6), rgba(30,20,10,0.8));
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 4px;
-            padding: 30px;
-            min-width: 360px;
-            max-width: 360px;
-            flex-shrink: 0;
-            transform: rotate(var(--r, 0deg));
-            transition: all 0.4s;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .testi-card:nth-child(odd) { --r: 1.5deg; }
-        .testi-card:nth-child(even) { --r: -1.5deg; }
-        .testi-card:hover {
-            transform: rotate(0deg) translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            margin-top: 50px;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .testi-stars { color: #fbbf24; letter-spacing: 3px; margin-bottom: 12px; font-size: 0.85rem; }
-        .testi-text { font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.8; font-style: italic; margin-bottom: 18px; }
-        .testi-author { display: flex; align-items: center; gap: 12px; }
-        .testi-avatar {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #00ff88, #00b4d8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .result-block {
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0,255,136,0.08);
+            border-radius: 16px;
+            padding: 35px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s;
+        }
+        .result-block::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ff88, transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        .result-block:hover {
+            border-color: rgba(0,255,136,0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 30px rgba(0,255,136,0.05);
+        }
+        .result-block:hover::before { opacity: 1; }
+
+        .result-num {
+            font-family: 'Monoton', cursive;
+            font-size: 3rem;
+            color: #00ff88;
+            text-shadow: 0 0 20px rgba(0,255,136,0.4);
+            line-height: 1;
+            display: inline;
+        }
+        .result-unit {
+            font-family: 'Monoton', cursive;
+            font-size: 1.8rem;
+            color: #00ff88;
+            text-shadow: 0 0 15px rgba(0,255,136,0.3);
+            display: inline;
+            margin-left: 2px;
+        }
+        .result-label {
+            font-size: 0.85rem;
             font-weight: 700;
-            font-size: 0.8rem;
-            color: #000;
+            color: rgba(255,255,255,0.85);
+            margin-top: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
-        .testi-name { font-weight: 600; font-size: 0.85rem; }
-        .testi-role { font-size: 0.7rem; color: rgba(255,255,255,0.35); }
+        .result-sub {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.35);
+            margin-top: 6px;
+            line-height: 1.4;
+        }
+
+        .results-quote {
+            margin-top: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .results-quote p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.5);
+            font-style: italic;
+            line-height: 1.8;
+            margin: 15px 0;
+        }
+        .results-quote span {
+            font-size: 0.8rem;
+            color: #00ff88;
+            font-weight: 600;
+        }
+        .rq-line {
+            width: 50px;
+            height: 1px;
+            background: rgba(0,255,136,0.3);
+            margin: 0 auto;
+        }
 
         /* ═══ PROCESS ═══ */
         .process-section {
@@ -862,7 +886,7 @@
             font-family: inherit;
             transition: all 0.3s;
             margin-bottom: 14px;
-            cursor: none;
+            cursor: pointer;
         }
         .contact-form input:focus,
         .contact-form select:focus,
@@ -887,7 +911,7 @@
             font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            cursor: none;
+            cursor: pointer;
             font-family: inherit;
             transition: all 0.3s;
         }
@@ -1098,7 +1122,7 @@
             align-items: center;
             justify-content: center;
             color: #00ff88;
-            cursor: none;
+            cursor: pointer;
             z-index: 50;
             opacity: 0;
             pointer-events: none;
@@ -1138,8 +1162,6 @@
             .process-steps { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
-            body { cursor: auto; }
-            #cursor { display: none; }
             .nav-links { display: none; }
             section, .scene { padding: 80px 5%; }
             .services-grid { grid-template-columns: 1fr; }
@@ -1147,10 +1169,9 @@
             .projects-grid { flex-direction: column; align-items: center; }
             .contact-layout { grid-template-columns: 1fr; }
             .process-steps { grid-template-columns: 1fr; }
-            .testi-card { min-width: 280px; max-width: 280px; }
+            .results-grid { grid-template-columns: repeat(2, 1fr); }
             .stats-row { flex-direction: column; gap: 25px; }
             footer { flex-direction: column; text-align: center; }
-            .btn-start, .btn-send, .contact-form input, .contact-form select, .contact-form textarea, .ai-card .cta, .soc { cursor: auto; }
         }
     </style>
 </head>
@@ -1166,7 +1187,6 @@
 <div class="grain"></div>
 <div class="vignette"></div>
 <div id="scrollBar"></div>
-<div id="cursor"></div>
 
 <!-- Nav -->
 <nav id="nav">
@@ -1189,7 +1209,7 @@
     <a href="#services">Leistungen</a>
     <a href="#ai">AI Services</a>
     <a href="#projects">Projekte</a>
-    <a href="#testimonials">Kundenstimmen</a>
+    <a href="#results">Ergebnisse</a>
     <a href="#contact">Kontakt</a>
 </div>
 
@@ -1252,29 +1272,6 @@
     </div>
 </section>
 
-<!-- Partner Logos -->
-<div class="partners">
-    <div class="partners-label">Vertrauen von führenden Unternehmen</div>
-    <div class="logos-track">
-        <span class="logo-item"><span class="logo-icon">🏢</span>TechStart GmbH</span>
-        <span class="logo-item"><span class="logo-icon">📊</span>Innovative Solutions</span>
-        <span class="logo-item"><span class="logo-icon">🛒</span>Digital Commerce AG</span>
-        <span class="logo-item"><span class="logo-icon">💰</span>FinTech Solutions</span>
-        <span class="logo-item"><span class="logo-icon">🏗️</span>BuildTech Pro</span>
-        <span class="logo-item"><span class="logo-icon">🔬</span>MedTech Innovations</span>
-        <span class="logo-item"><span class="logo-icon">🚗</span>AutoDigital GmbH</span>
-        <span class="logo-item"><span class="logo-icon">📱</span>AppVenture AG</span>
-        <!-- Duplicate -->
-        <span class="logo-item"><span class="logo-icon">🏢</span>TechStart GmbH</span>
-        <span class="logo-item"><span class="logo-icon">📊</span>Innovative Solutions</span>
-        <span class="logo-item"><span class="logo-icon">🛒</span>Digital Commerce AG</span>
-        <span class="logo-item"><span class="logo-icon">💰</span>FinTech Solutions</span>
-        <span class="logo-item"><span class="logo-icon">🏗️</span>BuildTech Pro</span>
-        <span class="logo-item"><span class="logo-icon">🔬</span>MedTech Innovations</span>
-        <span class="logo-item"><span class="logo-icon">🚗</span>AutoDigital GmbH</span>
-        <span class="logo-item"><span class="logo-icon">📱</span>AppVenture AG</span>
-    </div>
-</div>
 <div class="divider"></div>
 
 <!-- ═══════ SERVICES – THE ROOM ═══════ -->
@@ -1382,8 +1379,8 @@
     </div>
 </section>
 
-<!-- ═══════ TESTIMONIALS – INDUSTRIAL ═══════ -->
-<section class="scene testimonials-section" id="testimonials">
+<!-- ═══════ RESULTS – THE COMMAND CENTER ═══════ -->
+<section class="scene results-section" id="results">
     <video class="scene-video" autoplay muted loop playsinline>
         <source src="videos/test.mp4" type="video/mp4">
     </video>
@@ -1392,19 +1389,41 @@
     <div class="scene-fade-bottom"></div>
 
     <div class="scene-content" style="text-align:center;">
-        <div class="reveal"><div class="wood-board"><span class="neon">Kundenstimmen</span></div></div>
-    </div>
-    <div class="testi-track-wrapper">
-        <div class="testi-track">
-            <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Three Connect hat unsere Website neu aufgebaut und unseren Vertrieb revolutioniert. Professionell und effizient."</p><div class="testi-author"><div class="testi-avatar">MK</div><div><div class="testi-name">Michael K.</div><div class="testi-role">Geschäftsführer, TechStart GmbH</div></div></div></div>
-            <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Das CRM-Setup hat unsere Vertriebsprozesse transformiert. Endlich datenbasierte Entscheidungen."</p><div class="testi-author"><div class="testi-avatar">SH</div><div><div class="testi-name">Sarah H.</div><div class="testi-role">Vertriebsleiterin, Innovative Solutions</div></div></div></div>
-            <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Der AI Chatbot beantwortet 70% unserer Anfragen automatisch. Spart täglich Stunden."</p><div class="testi-author"><div class="testi-avatar">TW</div><div><div class="testi-name">Thomas W.</div><div class="testi-role">CEO, Digital Commerce AG</div></div></div></div>
-            <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"180% mehr organischer Traffic nach 3 Monaten. Top-3-Rankings für unsere wichtigsten Keywords."</p><div class="testi-author"><div class="testi-avatar">LB</div><div><div class="testi-name">Lisa B.</div><div class="testi-role">Marketing, FinTech Solutions</div></div></div></div>
-            <!-- Duplicate for infinite scroll -->
-            <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Three Connect hat unsere Website neu aufgebaut und unseren Vertrieb revolutioniert. Professionell und effizient."</p><div class="testi-author"><div class="testi-avatar">MK</div><div><div class="testi-name">Michael K.</div><div class="testi-role">Geschäftsführer, TechStart GmbH</div></div></div></div>
-            <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Das CRM-Setup hat unsere Vertriebsprozesse transformiert. Endlich datenbasierte Entscheidungen."</p><div class="testi-author"><div class="testi-avatar">SH</div><div><div class="testi-name">Sarah H.</div><div class="testi-role">Vertriebsleiterin, Innovative Solutions</div></div></div></div>
-            <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Der AI Chatbot beantwortet 70% unserer Anfragen automatisch. Spart täglich Stunden."</p><div class="testi-author"><div class="testi-avatar">TW</div><div><div class="testi-name">Thomas W.</div><div class="testi-role">CEO, Digital Commerce AG</div></div></div></div>
-            <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"180% mehr organischer Traffic nach 3 Monaten. Top-3-Rankings für unsere wichtigsten Keywords."</p><div class="testi-author"><div class="testi-avatar">LB</div><div><div class="testi-name">Lisa B.</div><div class="testi-role">Marketing, FinTech Solutions</div></div></div></div>
+        <div class="reveal"><div class="wood-board"><span class="neon">Ergebnisse</span></div></div>
+        <p style="max-width:550px;margin:25px auto 0;color:rgba(255,255,255,0.4);font-size:0.9rem;" class="reveal">Zahlen lügen nicht. Das haben wir für unsere Kunden erreicht.</p>
+
+        <div class="results-grid stagger">
+            <div class="result-block">
+                <div class="result-num" data-c="180">0</div>
+                <div class="result-unit">%</div>
+                <div class="result-label">Mehr organischer Traffic</div>
+                <div class="result-sub">durchschnittlich nach 3 Monaten SEO</div>
+            </div>
+            <div class="result-block">
+                <div class="result-num" data-c="3">0</div>
+                <div class="result-unit">x</div>
+                <div class="result-label">Mehr qualifizierte Leads</div>
+                <div class="result-sub">durch optimierte Sales Funnels</div>
+            </div>
+            <div class="result-block">
+                <div class="result-num" data-c="70">0</div>
+                <div class="result-unit">%</div>
+                <div class="result-label">Automatisierte Anfragen</div>
+                <div class="result-sub">durch AI Chatbot-Integration</div>
+            </div>
+            <div class="result-block">
+                <div class="result-num" data-c="48">0</div>
+                <div class="result-unit">h</div>
+                <div class="result-label">Schnelle Umsetzung</div>
+                <div class="result-sub">Landing Pages in unter 2 Tagen live</div>
+            </div>
+        </div>
+
+        <div class="results-quote reveal">
+            <div class="rq-line"></div>
+            <p>"Three Connect hat unseren Online-Vertrieb komplett transformiert. Die Ergebnisse sprechen für sich."</p>
+            <span>&mdash; Michael K., Geschäftsführer</span>
+            <div class="rq-line"></div>
         </div>
     </div>
 </section>
@@ -1472,21 +1491,6 @@
 // ── Preloader
 window.addEventListener('load', () => setTimeout(() => document.getElementById('preloader').classList.add('hidden'), 1500));
 
-// ── Custom Cursor
-const cur = document.getElementById('cursor');
-let cx = 0, cy = 0, mx = 0, my = 0;
-document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-(function loop() {
-    cx += (mx - cx) * 0.15;
-    cy += (my - cy) * 0.15;
-    cur.style.left = cx + 'px';
-    cur.style.top = cy + 'px';
-    requestAnimationFrame(loop);
-})();
-document.querySelectorAll('a,button,input,select,textarea,.svc,.ai-card,.portal-card,.testi-card').forEach(el => {
-    el.addEventListener('mouseenter', () => cur.classList.add('hover'));
-    el.addEventListener('mouseleave', () => cur.classList.remove('hover'));
-});
 
 // ── Scroll
 const bar = document.getElementById('scrollBar');
