@@ -952,6 +952,138 @@
         footer a { font-size: 0.75rem; color: rgba(255,255,255,0.25); transition: color 0.3s; margin-left: 20px; }
         footer a:hover { color: #00ff88; }
 
+        /* ═══ PARTNER LOGOS MARQUEE ═══ */
+        .partners { padding: 60px 0; background: rgba(0,0,0,0.3); overflow: hidden; position: relative; }
+        .partners::before, .partners::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 120px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .partners::before { left: 0; background: linear-gradient(90deg, #000, transparent); }
+        .partners::after { right: 0; background: linear-gradient(270deg, #000, transparent); }
+        .partners-label {
+            text-align: center;
+            font-size: 0.7rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.25);
+            margin-bottom: 25px;
+        }
+        .logos-track {
+            display: flex;
+            gap: 60px;
+            animation: logoScroll 25s linear infinite;
+            width: max-content;
+            align-items: center;
+        }
+        .logos-track:hover { animation-play-state: paused; }
+        @keyframes logoScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .logo-item {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.15);
+            white-space: nowrap;
+            letter-spacing: 0.05em;
+            transition: all 0.4s;
+            filter: grayscale(1);
+        }
+        .logo-item:hover { color: rgba(255,255,255,0.5); filter: grayscale(0); }
+        .logo-item .logo-icon { font-size: 1.5rem; margin-right: 8px; vertical-align: middle; }
+
+        /* ═══ TRUST BADGES ═══ */
+        .trust-row {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 100px;
+            background: rgba(255,255,255,0.02);
+            transition: all 0.3s;
+        }
+        .trust-badge:hover { border-color: rgba(0,255,136,0.2); background: rgba(0,255,136,0.03); }
+        .trust-badge i { color: #00ff88; font-size: 1rem; }
+        .trust-badge span { font-size: 0.8rem; color: rgba(255,255,255,0.5); font-weight: 500; }
+
+        /* ═══ SECTION DIVIDER ═══ */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0,255,136,0.2), transparent);
+            position: relative;
+            overflow: hidden;
+        }
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, #00ff88, transparent);
+            animation: dividerGlow 4s ease-in-out infinite;
+        }
+        @keyframes dividerGlow { 0% { left: -50%; } 100% { left: 100%; } }
+
+        /* ═══ GLITCH EFFECT ON HOVER ═══ */
+        .glitch-hover { position: relative; display: inline-block; }
+        .glitch-hover:hover { animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; }
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-3px, 3px); }
+            40% { transform: translate(-3px, -3px); }
+            60% { transform: translate(3px, 3px); }
+            80% { transform: translate(3px, -3px); }
+            100% { transform: translate(0); }
+        }
+
+        /* ═══ CTA PULSE ═══ */
+        .btn-start { animation: ctaPulse 3s ease-in-out infinite; }
+        @keyframes ctaPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(0,255,136,0); }
+            50% { box-shadow: 0 0 0 12px rgba(0,255,136,0.08); }
+        }
+        .btn-start:hover { animation: none; }
+
+        /* ═══ 3D TILT CARD ═══ */
+        [data-tilt] { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); transform-style: preserve-3d; }
+
+        /* ═══ GLOW FOLLOW ═══ */
+        .glow-follow {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(0,255,136,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 0;
+        }
+        .ai-card:hover .glow-follow, .portal-card:hover .glow-follow { opacity: 1; }
+
+        /* ═══ MAGNETIC ═══ */
+        .magnetic { transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+
+        /* ═══ PARTICLE CANVAS ═══ */
+        #particles {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
         /* ═══ SCROLL TOP ═══ */
         #toTop {
             position: fixed;
@@ -1069,13 +1201,14 @@
     <div class="scene-filter"></div>
     <div class="scene-fade-bottom"></div>
 
+    <canvas id="particles"></canvas>
     <div class="scene-content">
         <div class="hero-inner">
-            <h1>Digital<br>Architects</h1>
+            <h1 class="glitch-hover">Digital<br>Architects</h1>
             <div class="hero-sub">
                 <span class="hero-typed" id="typed"></span>
             </div>
-            <button class="btn-start" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+            <button class="btn-start magnetic" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
                 Entdecken <i class="fas fa-chevron-right"></i>
             </button>
         </div>
@@ -1110,8 +1243,39 @@
             <div class="stat"><div class="stat-num" data-c="98">0</div><div class="stat-label">% Erfolgsquote</div></div>
             <div class="stat"><div class="stat-num" data-c="10">0</div><div class="stat-label">Jahre Erfahrung</div></div>
         </div>
+        <div class="trust-row reveal">
+            <div class="trust-badge"><i class="fas fa-shield-alt"></i><span>DSGVO-konform</span></div>
+            <div class="trust-badge"><i class="fas fa-bolt"></i><span>Agile Methoden</span></div>
+            <div class="trust-badge"><i class="fas fa-headset"></i><span>24/7 Support</span></div>
+            <div class="trust-badge"><i class="fas fa-award"></i><span>Zertifiziert</span></div>
+        </div>
     </div>
 </section>
+
+<!-- Partner Logos -->
+<div class="partners">
+    <div class="partners-label">Vertrauen von führenden Unternehmen</div>
+    <div class="logos-track">
+        <span class="logo-item"><span class="logo-icon">🏢</span>TechStart GmbH</span>
+        <span class="logo-item"><span class="logo-icon">📊</span>Innovative Solutions</span>
+        <span class="logo-item"><span class="logo-icon">🛒</span>Digital Commerce AG</span>
+        <span class="logo-item"><span class="logo-icon">💰</span>FinTech Solutions</span>
+        <span class="logo-item"><span class="logo-icon">🏗️</span>BuildTech Pro</span>
+        <span class="logo-item"><span class="logo-icon">🔬</span>MedTech Innovations</span>
+        <span class="logo-item"><span class="logo-icon">🚗</span>AutoDigital GmbH</span>
+        <span class="logo-item"><span class="logo-icon">📱</span>AppVenture AG</span>
+        <!-- Duplicate -->
+        <span class="logo-item"><span class="logo-icon">🏢</span>TechStart GmbH</span>
+        <span class="logo-item"><span class="logo-icon">📊</span>Innovative Solutions</span>
+        <span class="logo-item"><span class="logo-icon">🛒</span>Digital Commerce AG</span>
+        <span class="logo-item"><span class="logo-icon">💰</span>FinTech Solutions</span>
+        <span class="logo-item"><span class="logo-icon">🏗️</span>BuildTech Pro</span>
+        <span class="logo-item"><span class="logo-icon">🔬</span>MedTech Innovations</span>
+        <span class="logo-item"><span class="logo-icon">🚗</span>AutoDigital GmbH</span>
+        <span class="logo-item"><span class="logo-icon">📱</span>AppVenture AG</span>
+    </div>
+</div>
+<div class="divider"></div>
 
 <!-- ═══════ SERVICES – THE ROOM ═══════ -->
 <section class="scene services" id="services">
@@ -1156,10 +1320,10 @@
             </p>
         </div>
         <div class="ai-grid stagger">
-            <div class="ai-card"><div class="ai-icon"><i class="fas fa-robot"></i></div><h3>AI Chatbot / WhatsApp Bot</h3><p>24/7 Kundenanfragen beantworten, qualifizieren und weiterleiten.</p><button class="cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Anfragen <i class="fas fa-arrow-right"></i></button></div>
-            <div class="ai-card"><div class="ai-icon"><i class="fas fa-user-tie"></i></div><h3>AI Sales Agent</h3><p>Automatisierte Lead-Recherche, personalisierter Outreach, Terminvereinbarung.</p><button class="cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Anfragen <i class="fas fa-arrow-right"></i></button></div>
-            <div class="ai-card"><div class="ai-icon"><i class="fas fa-pen-fancy"></i></div><h3>AI Content Abo</h3><p>8 Social-Posts, 2 Blog-Artikel, Newsletter &mdash; monatlich, KI-generiert.</p><button class="cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Anfragen <i class="fas fa-arrow-right"></i></button></div>
-            <div class="ai-card"><div class="ai-icon"><i class="fas fa-network-wired"></i></div><h3>AI Workflow Automation</h3><p>E-Mail-Verarbeitung, Daten-Sync, Reports &mdash; automatisiert.</p><button class="cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Anfragen <i class="fas fa-arrow-right"></i></button></div>
+            <div class="ai-card" data-tilt><div class="glow-follow"></div><div class="ai-icon"><i class="fas fa-robot"></i></div><h3>AI Chatbot / WhatsApp Bot</h3><p>24/7 Kundenanfragen beantworten, qualifizieren und weiterleiten.</p><button class="cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Anfragen <i class="fas fa-arrow-right"></i></button></div>
+            <div class="ai-card" data-tilt><div class="glow-follow"></div><div class="ai-icon"><i class="fas fa-user-tie"></i></div><h3>AI Sales Agent</h3><p>Automatisierte Lead-Recherche, personalisierter Outreach, Terminvereinbarung.</p><button class="cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Anfragen <i class="fas fa-arrow-right"></i></button></div>
+            <div class="ai-card" data-tilt><div class="glow-follow"></div><div class="ai-icon"><i class="fas fa-pen-fancy"></i></div><h3>AI Content Abo</h3><p>8 Social-Posts, 2 Blog-Artikel, Newsletter &mdash; monatlich, KI-generiert.</p><button class="cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Anfragen <i class="fas fa-arrow-right"></i></button></div>
+            <div class="ai-card" data-tilt><div class="glow-follow"></div><div class="ai-icon"><i class="fas fa-network-wired"></i></div><h3>AI Workflow Automation</h3><p>E-Mail-Verarbeitung, Daten-Sync, Reports &mdash; automatisiert.</p><button class="cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Anfragen <i class="fas fa-arrow-right"></i></button></div>
         </div>
     </div>
 </section>
@@ -1196,19 +1360,19 @@
     <div class="scene-content" style="text-align:center;">
         <div class="reveal"><div class="wood-board"><span class="neon">Projekte</span></div></div>
         <div class="projects-grid reveal">
-            <div class="portal-card">
+            <div class="portal-card" data-tilt>
                 <div class="portal-ring"><div class="portal-inner" style="background:linear-gradient(135deg,#0a1628,#1e3a5f);"><span class="portal-emoji">🌊</span><span class="portal-name" style="color:#00b4d8;">DeepSale</span></div></div>
                 <h3>DeepSale</h3>
                 <p>KI-gestützte B2B Sales Automation</p>
                 <a href="https://www.deepsale.de" target="_blank">Entdecken <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="portal-card">
+            <div class="portal-card" data-tilt>
                 <div class="portal-ring"><div class="portal-inner" style="background:linear-gradient(135deg,#1a0a28,#3a1e5f);"><span class="portal-emoji">📦</span><span class="portal-name" style="color:#a78bfa;">MoveMaster</span></div></div>
                 <h3>MoveMaster</h3>
                 <p>Umzugsmanagement-Software</p>
                 <a href="https://www.mymovemaster.de" target="_blank">Entdecken <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="portal-card">
+            <div class="portal-card" data-tilt>
                 <div class="portal-ring"><div class="portal-inner" style="background:linear-gradient(135deg,#1a1408,#3a2e0a);"><span class="portal-emoji">🍽️</span><span class="portal-name" style="color:#f97316;">Oriido</span></div></div>
                 <h3>Oriido</h3>
                 <p>Restaurant Bestell-System</p>
@@ -1398,6 +1562,104 @@ document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click
     const t = document.querySelector(this.getAttribute('href'));
     if (t) t.scrollIntoView({ behavior: 'smooth' });
 }));
+
+// ── 3D Tilt Effect
+document.querySelectorAll('[data-tilt]').forEach(card => {
+    card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = `perspective(800px) rotateY(${x * 12}deg) rotateX(${y * -12}deg) scale3d(1.02,1.02,1.02)`;
+    });
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(800px) rotateY(0) rotateX(0) scale3d(1,1,1)';
+    });
+});
+
+// ── Glow Follow Mouse
+document.querySelectorAll('.glow-follow').forEach(glow => {
+    const card = glow.parentElement;
+    card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        glow.style.left = (e.clientX - r.left) + 'px';
+        glow.style.top = (e.clientY - r.top) + 'px';
+    });
+});
+
+// ── Magnetic Buttons
+document.querySelectorAll('.magnetic').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+        const r = btn.getBoundingClientRect();
+        const x = e.clientX - r.left - r.width / 2;
+        const y = e.clientY - r.top - r.height / 2;
+        btn.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0, 0)';
+    });
+});
+
+// ── Particle Canvas (Hero stars)
+(function initParticles() {
+    const c = document.getElementById('particles');
+    if (!c) return;
+    const ctx = c.getContext('2d');
+    const pts = [];
+    let pmx = 0, pmy = 0;
+
+    function resize() { c.width = window.innerWidth; c.height = window.innerHeight; }
+    resize();
+    window.addEventListener('resize', resize);
+    document.addEventListener('mousemove', e => { pmx = e.clientX; pmy = e.clientY; });
+
+    for (let i = 0; i < 100; i++) {
+        pts.push({
+            x: Math.random() * c.width,
+            y: Math.random() * c.height,
+            r: Math.random() * 1.5 + 0.5,
+            dx: (Math.random() - 0.5) * 0.3,
+            dy: (Math.random() - 0.5) * 0.3,
+            o: Math.random() * 0.4 + 0.1,
+            tw: Math.random() * 0.015 + 0.005,
+            to: Math.random() * Math.PI * 2
+        });
+    }
+
+    function draw(t) {
+        ctx.clearRect(0, 0, c.width, c.height);
+        pts.forEach(p => {
+            p.x += p.dx; p.y += p.dy;
+            if (p.x < 0 || p.x > c.width) p.dx *= -1;
+            if (p.y < 0 || p.y > c.height) p.dy *= -1;
+            // Mouse repel
+            const dx = p.x - pmx, dy = p.y - pmy;
+            const d = Math.sqrt(dx * dx + dy * dy);
+            if (d < 100 && d > 0) { p.x += dx / d * 1.2; p.y += dy / d * 1.2; }
+            const op = p.o * (0.5 + 0.5 * Math.sin(t * p.tw + p.to));
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255,255,255,${op})`;
+            ctx.fill();
+        });
+        // Draw connections
+        for (let i = 0; i < pts.length; i++) {
+            for (let j = i + 1; j < pts.length; j++) {
+                const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+                const d = Math.sqrt(dx * dx + dy * dy);
+                if (d < 100) {
+                    ctx.beginPath();
+                    ctx.moveTo(pts[i].x, pts[i].y);
+                    ctx.lineTo(pts[j].x, pts[j].y);
+                    ctx.strokeStyle = `rgba(0,255,136,${0.05 * (1 - d / 100)})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.stroke();
+                }
+            }
+        }
+        requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
+})();
 
 // ── Contact form
 async function sendForm(e) {
